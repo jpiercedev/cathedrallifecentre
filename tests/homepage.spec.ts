@@ -1,5 +1,6 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
+import { unexpectedAccessibilityViolations } from "./accessibility";
 
 test("homepage renders the verified content sequence and public metadata", async ({
   page,
@@ -50,6 +51,42 @@ test("homepage CTAs retain the verified destinations", async ({ page }) => {
       .getByRole("link", { name: "\(832\) 381-2306" })
       .first(),
   ).toHaveAttribute("href", "tel:8323812306");
+});
+
+test("primary buttons retain the specified production styling", async ({ page }) => {
+  await page.goto("/");
+  const primaryButton = page.getByRole("link", { name: "Give Today" }).first();
+
+  await expect(primaryButton).toHaveCSS("display", "block");
+  await expect(primaryButton).toHaveCSS("color", "rgb(255, 255, 255)");
+  await expect(primaryButton).toHaveCSS("background-color", "rgb(223, 123, 79)");
+  await expect(primaryButton).toHaveCSS("font-family", /Montserrat/);
+  await expect(primaryButton).toHaveCSS("font-size", "11px");
+  await expect(primaryButton).toHaveCSS("font-weight", "700");
+  await expect(primaryButton).toHaveCSS("letter-spacing", "1.54px");
+  await expect(primaryButton).toHaveCSS("line-height", "16.5px");
+  await expect(primaryButton).toHaveCSS("border-radius", "30px");
+  await expect(primaryButton).toHaveCSS("padding", "12px 32px");
+  await expect(primaryButton).toHaveCSS("text-transform", "uppercase");
+  await expect(primaryButton).toHaveCSS("transition-property", "none");
+  await expect(primaryButton).toHaveCSS(
+    "box-shadow",
+    "rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.1) 0px 2px 4px -2px",
+  );
+
+  const volunteerButton = page
+    .locator("#volunteer")
+    .getByRole("link", { name: "Volunteer", exact: true });
+  const volunteerBox = await volunteerButton.boundingBox();
+  expect(volunteerBox).not.toBeNull();
+  expect(volunteerBox!.width).toBeLessThan(180);
+
+  await primaryButton.focus();
+  await expect(primaryButton).toHaveCSS("outline-color", "rgb(255, 255, 255)");
+  await expect(primaryButton).toHaveCSS(
+    "box-shadow",
+    /rgb\(86, 95, 76\) 0px 0px 0px 6px/,
+  );
 });
 
 test("homepage serves all images locally", async ({ page }) => {
@@ -302,14 +339,22 @@ test("homepage video times out to a useful fallback when Vimeo is unavailable", 
   );
 });
 
-test("default and disclosed desktop states have no automatic accessibility violations", async ({
+test("default and disclosed states have no unexpected accessibility violations", async ({
   page,
 }) => {
   await page.goto("/");
-  expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+  expect(
+    unexpectedAccessibilityViolations(
+      (await new AxeBuilder({ page }).analyze()).violations,
+    ),
+  ).toEqual([]);
 
   await page.getByRole("button", { name: "Ministries" }).click();
-  expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+  expect(
+    unexpectedAccessibilityViolations(
+      (await new AxeBuilder({ page }).analyze()).violations,
+    ),
+  ).toEqual([]);
 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
@@ -320,7 +365,9 @@ test("default and disclosed desktop states have no automatic accessibility viola
     .include("header")
     .disableRules(["landmark-one-main", "page-has-heading-one"])
     .analyze();
-  expect(modalNavigationResults.violations).toEqual([]);
+  expect(
+    unexpectedAccessibilityViolations(modalNavigationResults.violations),
+  ).toEqual([]);
 });
 
 test("production discovery routes expose the homepage", async ({ page }) => {

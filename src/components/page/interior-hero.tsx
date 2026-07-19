@@ -24,6 +24,8 @@ type InteriorHeroProps = {
   image: string;
   imageAlt?: string;
   imagePosition?: string;
+  innerClassName?: string;
+  scrollCueClassName?: string;
   scrollTargetId?: string;
   titleId: string;
 };
@@ -51,6 +53,8 @@ export function InteriorHero({
   image,
   imageAlt = "",
   imagePosition = "50% 50%",
+  innerClassName,
+  scrollCueClassName,
   scrollTargetId = "page-content",
   titleId,
 }: InteriorHeroProps) {
@@ -69,7 +73,9 @@ export function InteriorHero({
       <div aria-hidden="true" className={styles.overlay} />
       <div aria-hidden="true" className={styles.fade} />
 
-      <Container className={styles.inner}>
+      <Container
+        className={[styles.inner, innerClassName].filter(Boolean).join(" ")}
+      >
         <nav aria-label="Breadcrumb" className={styles.breadcrumbs}>
           <ol>
             {breadcrumbs.map((breadcrumb, index) => (
@@ -106,7 +112,9 @@ export function InteriorHero({
 
       <a
         aria-label="Scroll to page content"
-        className={styles.scrollCue}
+        className={[styles.scrollCue, scrollCueClassName]
+          .filter(Boolean)
+          .join(" ")}
         href={`#${scrollTargetId}`}
       >
         <span aria-hidden="true" className={styles.mouse}>

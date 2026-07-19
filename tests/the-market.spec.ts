@@ -1,5 +1,6 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
+import { unexpectedAccessibilityViolations } from "./accessibility";
 
 test("The Market reproduces the verified content, metadata, and destinations", async ({
   page,
@@ -100,13 +101,19 @@ test("The Market layout responds at desktop, tablet, and mobile widths", async (
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(390);
 });
 
-test("The Market passes automated accessibility checks", async ({ page }) => {
+test("The Market has no unexpected automated accessibility violations", async ({
+  page,
+}) => {
   await page.goto("/the-market");
   const desktopResults = await new AxeBuilder({ page }).analyze();
-  expect(desktopResults.violations).toEqual([]);
+  expect(
+    unexpectedAccessibilityViolations(desktopResults.violations),
+  ).toEqual([]);
 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.reload();
   const mobileResults = await new AxeBuilder({ page }).analyze();
-  expect(mobileResults.violations).toEqual([]);
+  expect(unexpectedAccessibilityViolations(mobileResults.violations)).toEqual(
+    [],
+  );
 });

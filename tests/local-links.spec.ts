@@ -21,7 +21,6 @@ const deferredPhaseRoutes = new Set([
   "/contact",
   "/donate",
   "/foster-care",
-  "/fresh-start",
   "/grace-garage",
   "/groups",
   "/residency-programs",
@@ -83,6 +82,14 @@ test("implemented local routes have valid links and report deferred destinations
     statuses.set(requestedUrl, status);
     if (status < 200 || status >= 400) {
       problems.push(`${requestedUrl} returned HTTP ${status || "unknown"}.`);
+      continue;
+    }
+
+    const loadedUrl = new URL(page.url());
+    if (loadedUrl.origin !== origin) {
+      problems.push(
+        `${requestedUrl} redirected outside the local implementation to ${loadedUrl.toString()}.`,
+      );
       continue;
     }
 

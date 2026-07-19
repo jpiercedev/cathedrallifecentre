@@ -9,7 +9,6 @@ const legacyFallbackRoutes = [
   "/contact",
   "/donate",
   "/foster-care",
-  "/fresh-start",
   "/grace-garage",
   "/groups",
   "/residency-programs",

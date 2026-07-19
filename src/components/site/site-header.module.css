@@ -157,22 +157,45 @@
 
 .donateButton,
 .tabletDonate {
-  display: inline-flex;
-  min-width: 130px;
-  min-height: 47px;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 30px;
-  border: 2px solid rgb(255 255 255 / 30%);
-  border-radius: var(--radius-pill);
-  color: var(--color-white);
-  background: var(--color-action-strong);
-  box-shadow: 0 3px 7px rgb(45 50 39 / 20%);
+  display: block;
+  align-self: center;
+  width: auto;
+  height: auto;
+  padding: 12px 32px;
+  border: 3px solid rgb(255 255 255 / 25%);
+  border-radius: 30px;
+  outline-color: rgb(255 255 255);
+  margin: 0;
+  color: rgb(255 255 255);
+  background: rgb(223 123 79);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 10%),
+    0 2px 4px -2px rgb(0 0 0 / 10%);
+  font-family: Montserrat, sans-serif;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 1.54px;
+  line-height: 1.5;
   text-decoration: none;
   text-transform: uppercase;
+  transition: none !important;
+}
+
+.donateButton:hover,
+.donateButton:focus-visible,
+.tabletDonate:hover,
+.tabletDonate:focus-visible {
+  color: rgb(255 255 255);
+  background: rgb(223 123 79);
+  transform: none;
+}
+
+.donateButton:focus-visible,
+.tabletDonate:focus-visible {
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 10%),
+    0 2px 4px -2px rgb(0 0 0 / 10%),
+    0 0 0 6px var(--color-olive-700);
 }
 
 .mobileActions,

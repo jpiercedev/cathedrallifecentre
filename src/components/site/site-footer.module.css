@@ -6,44 +6,75 @@
 
 .inner {
   display: grid;
-  width: min(100% - 80px, var(--container-default));
-  height: 390px;
-  grid-template-columns: 1.45fr 1fr 1fr 1.2fr;
-  gap: 56px;
+  width: min(100%, var(--container-default));
+  height: auto;
+  min-height: 390px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 40px;
   align-items: start;
   margin-inline: auto;
-  padding-block: 64px 40px;
+  padding: 56px 40px 16px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .brand p {
   max-width: 270px;
-  margin-block: 20px 24px;
+  margin-block: 20px;
   color: var(--color-cream-200);
-  font-size: 13px;
-  line-height: 1.7;
+  font-size: 14px;
+  line-height: 1.625;
 }
 
 .logo {
-  width: 250px;
+  width: 100%;
+  max-width: 240px;
   height: auto;
   filter: brightness(0) invert(1);
   opacity: 0.92;
 }
 
 .donate {
-  display: inline-flex;
-  min-height: 40px;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 22px;
-  border-radius: var(--radius-pill);
-  color: var(--color-white);
-  background: var(--color-action-strong);
-  font-size: 10px;
+  display: block;
+  align-self: center;
+  width: auto;
+  height: auto;
+  padding: 12px 32px;
+  border: 3px solid rgb(255 255 255 / 25%);
+  border-radius: 30px;
+  outline-color: rgb(255 255 255);
+  margin: 0;
+  color: rgb(255 255 255);
+  background: rgb(223 123 79);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 10%),
+    0 2px 4px -2px rgb(0 0 0 / 10%);
+  font-family: Montserrat, sans-serif;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 1.54px;
+  line-height: 1.5;
   text-decoration: none;
   text-transform: uppercase;
+  transition: none !important;
+}
+
+.donate:hover,
+.donate:focus-visible {
+  color: rgb(255 255 255);
+  background: rgb(223 123 79);
+  transform: none;
+}
+
+.donate:focus-visible {
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 10%),
+    0 2px 4px -2px rgb(0 0 0 / 10%),
+    0 0 0 6px var(--color-olive-700);
 }
 
 .linkGroup h2,
@@ -69,7 +100,7 @@
 .contact a,
 .contact address {
   color: var(--color-cream-200);
-  font-size: 12px;
+  font-size: 14px;
   font-style: normal;
   line-height: 1.7;
   text-decoration: none;
@@ -108,28 +139,40 @@
 
 @media (max-width: 61.9375rem) {
   .inner {
-    width: min(100% - 48px, var(--container-default));
-    grid-template-columns: 1.45fr 1fr 1fr 1.2fr;
-    gap: 32px;
+    width: min(100%, var(--container-default));
+    min-height: 429px;
+    padding-inline: 24px;
   }
 }
 
 @media (max-width: 47.9375rem) {
   .inner {
+    width: 100%;
     height: auto;
     min-height: 390px;
-    width: calc(100% - 48px);
     grid-template-columns: 1fr;
-    gap: 42px;
-    padding-block: 64px;
+    gap: 40px;
+    padding: 56px 24px 40px;
   }
 
   .brand p {
     max-width: 340px;
   }
 
+  .linkGroup h2,
+  .contact h2 {
+    margin-block-end: 20px;
+  }
+
   .legal {
     height: auto;
     min-height: 105px;
+  }
+}
+
+@media (max-width: 29.9375rem) {
+  .brand {
+    align-items: center;
+    text-align: center;
   }
 }

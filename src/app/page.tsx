@@ -284,12 +284,14 @@ export default function Home() {
                 ) : null}
               </p>
             ))}
-            <ButtonLink
-              className={styles.primaryButton}
-              href={volunteer.applicationUrl}
-            >
-              Volunteer
-            </ButtonLink>
+            <div className={styles.buttonRow}>
+              <ButtonLink
+                className={styles.primaryButton}
+                href={volunteer.applicationUrl}
+              >
+                Volunteer
+              </ButtonLink>
+            </div>
           </div>
           <div className={styles.volunteerImage}>
             <Image

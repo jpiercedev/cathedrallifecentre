@@ -13,5 +13,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    {
+      url: new URL("/fresh-start", siteConfig.productionUrl).toString(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
   ];
 }
