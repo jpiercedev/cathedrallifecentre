@@ -8,5 +8,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
     },
+    {
+      url: new URL("/the-market", siteConfig.productionUrl).toString(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
   ];
 }

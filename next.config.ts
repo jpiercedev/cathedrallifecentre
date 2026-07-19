@@ -13,7 +13,6 @@ const legacyFallbackRoutes = [
   "/grace-garage",
   "/groups",
   "/residency-programs",
-  "/the-market",
   "/volunteer",
 ] as const;
 

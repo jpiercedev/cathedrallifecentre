@@ -1,0 +1,23 @@
+.label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: fit-content;
+  margin: 0;
+  color: var(--color-terracotta-700);
+  font-family: var(--font-nav-source);
+  font-size: 0.69rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.label::before,
+.label::after {
+  width: 28px;
+  height: 1px;
+  flex: none;
+  background: currentColor;
+  content: "";
+}

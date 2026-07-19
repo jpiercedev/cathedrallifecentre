@@ -1,0 +1,255 @@
+.hero {
+  position: relative;
+  display: flex;
+  min-height: 554px;
+  overflow: hidden;
+  color: var(--color-white);
+  background: var(--color-olive-700);
+}
+
+.image {
+  z-index: 0;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgb(87 95 76 / 86%) 0%,
+    rgb(87 95 76 / 86%) 63%,
+    rgb(87 95 76 / 18%) 100%
+  );
+}
+
+.fade {
+  position: absolute;
+  z-index: 2;
+  inset: auto 0 0;
+  height: 100px;
+  background: linear-gradient(0deg, var(--color-linen-100), transparent);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  z-index: 3;
+  padding-block: 36px 80px;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.breadcrumbs li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: rgb(242 239 232 / 62%);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.breadcrumbs li:last-child {
+  color: var(--color-terracotta-500);
+}
+
+.breadcrumbs a {
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover,
+.breadcrumbs a:focus-visible {
+  color: var(--color-white);
+}
+
+.breadcrumbs svg {
+  width: 12px;
+  height: 12px;
+}
+
+.content {
+  width: min(100%, 672px);
+  margin-block-start: 28px;
+}
+
+.eyebrow {
+  color: var(--color-terracotta-500);
+}
+
+.content h1 {
+  margin-block: 19px 20px;
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 3.8rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  text-wrap: wrap;
+}
+
+.content h1 em {
+  font-weight: inherit;
+}
+
+.rule {
+  display: block;
+  width: 28px;
+  height: 2px;
+  margin-block-end: 18px;
+  background: rgb(230 218 196 / 70%);
+}
+
+.content > p {
+  max-width: 540px;
+  margin: 0;
+  color: rgb(242 239 232 / 85%);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.action {
+  display: inline-flex;
+  width: 273px;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  margin-block-start: 24px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  color: var(--color-white);
+  background: var(--color-action-strong);
+  box-shadow: 0 10px 28px rgb(0 0 0 / 18%);
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.action:hover,
+.action:focus-visible {
+  background: var(--color-burgundy-700);
+  box-shadow: 0 12px 32px rgb(0 0 0 / 24%);
+  transform: translateY(-2px);
+}
+
+.scrollCue {
+  position: absolute;
+  z-index: 4;
+  inset: auto 50% 24px auto;
+  display: grid;
+  justify-items: center;
+  gap: 5px;
+  transform: translateX(50%);
+  color: rgb(255 255 255 / 90%);
+  font-family: var(--font-display-source);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.mouse {
+  position: relative;
+  display: block;
+  width: 21px;
+  height: 31px;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+}
+
+.wheel {
+  position: absolute;
+  inset: 5px auto auto 50%;
+  width: 2px;
+  height: 6px;
+  transform: translateX(-50%);
+  border-radius: 2px;
+  background: currentColor;
+}
+
+@media (max-width: 61.9375rem) {
+  .inner {
+    width: calc(100% - 48px);
+    padding-block: 40px 64px;
+  }
+
+  .content {
+    width: min(100%, 720px);
+    margin-block-start: 28px;
+  }
+
+  .content h1 {
+    font-size: 2.625rem;
+    line-height: 1.12;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .breadcrumbs li {
+    font-size: 9px;
+  }
+
+  .content {
+    margin-block-start: 25px;
+  }
+
+  .content h1 {
+    margin-block-start: 16px;
+    font-size: 2.625rem;
+    line-height: 1.12;
+  }
+
+  .content > p {
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+
+  .action {
+    min-height: 44px;
+    padding-inline: 20px;
+    font-size: 0.78rem;
+  }
+
+  .scrollCue {
+    inset-block-end: 12px;
+  }
+}
+
+@media (max-width: 29.9375rem) {
+  .breadcrumbs {
+    overflow: hidden;
+  }
+
+  .breadcrumbs ol {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+  }
+
+  .content h1 {
+    font-size: 2.25rem;
+    line-height: 1.14;
+  }
+
+  .action {
+    width: 100%;
+    max-width: 320px;
+  }
+}

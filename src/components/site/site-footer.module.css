@@ -108,22 +108,16 @@
 
 @media (max-width: 61.9375rem) {
   .inner {
-    height: auto;
-    min-height: 390px;
-    width: min(100% - 64px, var(--container-default));
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 48px 64px;
-  }
-
-
-  .legal {
-    height: auto;
-    min-height: 105px;
+    width: min(100% - 48px, var(--container-default));
+    grid-template-columns: 1.45fr 1fr 1fr 1.2fr;
+    gap: 32px;
   }
 }
 
 @media (max-width: 47.9375rem) {
   .inner {
+    height: auto;
+    min-height: 390px;
     width: calc(100% - 48px);
     grid-template-columns: 1fr;
     gap: 42px;
@@ -132,5 +126,10 @@
 
   .brand p {
     max-width: 340px;
+  }
+
+  .legal {
+    height: auto;
+    min-height: 105px;
   }
 }
