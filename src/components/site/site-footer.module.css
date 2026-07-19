@@ -1,0 +1,136 @@
+.footer {
+  min-height: 495px;
+  color: var(--color-cream-200);
+  background: var(--color-olive-700);
+}
+
+.inner {
+  display: grid;
+  width: min(100% - 80px, var(--container-default));
+  height: 390px;
+  grid-template-columns: 1.45fr 1fr 1fr 1.2fr;
+  gap: 56px;
+  align-items: start;
+  margin-inline: auto;
+  padding-block: 64px 40px;
+}
+
+.brand p {
+  max-width: 270px;
+  margin-block: 20px 24px;
+  color: var(--color-cream-200);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.logo {
+  width: 250px;
+  height: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.92;
+}
+
+.donate {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
+  color: var(--color-white);
+  background: var(--color-action-strong);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.linkGroup h2,
+.contact h2 {
+  margin-block: 0 24px;
+  color: var(--color-sand-300);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.linkGroup ul {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.linkGroup a,
+.contact a,
+.contact address {
+  color: var(--color-cream-200);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.7;
+  text-decoration: none;
+}
+
+.linkGroup a:hover,
+.contact a:hover,
+.legal a:hover {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+.contact {
+  display: grid;
+  align-content: start;
+}
+
+.contact address {
+  margin-block-end: 8px;
+}
+
+.legal {
+  height: 105px;
+  padding: 26px 24px;
+  border-block-start: 1px solid rgb(242 239 232 / 12%);
+  color: var(--color-sand-300);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.legal p {
+  margin-block-end: 8px;
+}
+
+@media (max-width: 61.9375rem) {
+  .inner {
+    height: auto;
+    min-height: 390px;
+    width: min(100% - 64px, var(--container-default));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 48px 64px;
+  }
+
+
+  .legal {
+    height: auto;
+    min-height: 105px;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .inner {
+    width: calc(100% - 48px);
+    grid-template-columns: 1fr;
+    gap: 42px;
+    padding-block: 64px;
+  }
+
+  .brand p {
+    max-width: 340px;
+  }
+}

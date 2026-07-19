@@ -1,0 +1,968 @@
+.hero {
+  position: relative;
+  display: flex;
+  min-height: 620px;
+  overflow: hidden;
+  align-items: stretch;
+  color: var(--color-white);
+  background: var(--color-olive-700);
+}
+
+.heroImage {
+  z-index: 0;
+  object-fit: cover;
+  object-position: center 54%;
+}
+
+.heroOverlay {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgb(86 95 76 / 88%) 0%,
+    rgb(86 95 76 / 70%) 50%,
+    rgb(86 95 76 / 45%) 100%
+  );
+}
+
+.heroInner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: min(100% - 80px, 68.5rem);
+  align-items: flex-start;
+  padding-block: 56px 44px;
+}
+
+.heroContent {
+  max-width: 520px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-block-end: 20px;
+  color: #87371f;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.23em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.eyebrow::before,
+.eyebrow::after {
+  width: 38px;
+  height: 1px;
+  background: var(--color-terracotta-500);
+  content: "";
+}
+
+.hero .eyebrow {
+  color: var(--color-terracotta-500);
+}
+
+.hero .eyebrow::after {
+  display: none;
+}
+
+.hero h1 {
+  margin-block-end: 16px;
+  color: var(--color-white);
+  font-size: 60px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.12;
+}
+
+.heroRule {
+  width: 40px;
+  height: 2px;
+  margin-block-end: 18px;
+  background: rgb(230 218 196 / 55%);
+}
+
+.hero h1 span {
+  display: block;
+}
+
+.hero h1 em {
+  font-style: italic;
+}
+
+@media (min-width: 62rem) {
+  .hero h1 em {
+    display: block;
+  }
+}
+
+.heroContent > p:not(.eyebrow) {
+  max-width: 440px;
+  margin-block-end: 30px;
+  color: rgb(255 255 255 / 88%);
+  font-size: 16px;
+  line-height: 1.72;
+}
+
+.heroContent > p:not(.eyebrow) strong {
+  color: var(--color-sand-300);
+  font-weight: 600;
+}
+
+.buttonRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.primaryButton,
+.lightOutlineButton,
+.darkOutlineButton {
+  display: inline-flex;
+  min-width: 146px;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  border: 2px solid transparent;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.primaryButton {
+  color: var(--color-white);
+  background: var(--color-action-strong);
+  box-shadow: 0 4px 9px rgb(45 50 39 / 16%);
+}
+
+.lightOutlineButton {
+  border-color: var(--color-cream-200);
+  color: var(--color-white);
+  background: rgb(45 50 39 / 12%);
+}
+
+.darkOutlineButton {
+  border-color: var(--color-olive-700);
+  color: var(--color-olive-700);
+  background: transparent;
+}
+
+.primaryButton:hover,
+.primaryButton:focus-visible {
+  background: var(--color-olive-900);
+}
+
+.lightOutlineButton:hover,
+.lightOutlineButton:focus-visible {
+  color: var(--color-olive-900);
+  background: var(--color-cream-200);
+}
+
+.darkOutlineButton:hover,
+.darkOutlineButton:focus-visible {
+  color: var(--color-white);
+  background: var(--color-olive-700);
+}
+
+.mission {
+  display: flex;
+  min-height: 1030px;
+  align-items: center;
+  padding-block: 128px;
+  background: var(--color-sand-300);
+}
+
+.missionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 96px;
+  align-items: center;
+}
+
+.missionCopy h2,
+.residencyCopy h2,
+.volunteerCopy h2,
+.contactCopy h2 {
+  margin-block-end: 24px;
+  font-size: clamp(32px, 4vw, 51px);
+  line-height: 1.25;
+}
+
+.missionCopy > p:not(.eyebrow) {
+  margin-block-end: 18px;
+  color: var(--color-olive-700);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.breakDesktopMobile,
+.breakDesktop {
+  display: block;
+}
+
+.breakTabletMobile {
+  display: none;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.accentStrong {
+  color: var(--color-burgundy-700);
+  font-weight: 700;
+}
+
+.collage {
+  position: relative;
+  display: grid;
+  height: 532px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.collageRight {
+  display: grid;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.collageImage {
+  position: relative;
+  overflow: hidden;
+  border: 4px solid var(--color-sand-300);
+  border-radius: 20px;
+  background: var(--color-linen-100);
+}
+
+.collageImage img {
+  object-fit: cover;
+}
+
+.collageTall img {
+  filter: grayscale(1);
+  object-position: 44% center;
+}
+
+.missionBadge,
+.volunteerBadge {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  min-width: 264px;
+  min-height: 87px;
+  align-content: center;
+  justify-items: center;
+  padding: 14px 18px;
+  border-radius: 12px;
+  color: var(--color-cream-200);
+  background: var(--color-olive-700);
+  box-shadow: 0 6px 14px rgb(45 50 39 / 18%);
+}
+
+.missionBadge {
+  inset-inline-end: -20px;
+  inset-block-end: -24px;
+  border: 3px solid var(--color-sage-300);
+  border-radius: 20px;
+}
+
+.missionBadge strong,
+.volunteerBadge strong {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  line-height: 1.1;
+}
+
+.missionBadge strong {
+  font-size: 28px;
+}
+
+.missionBadge span,
+.volunteerBadge span {
+  color: var(--color-cream-200);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.statement {
+  display: flex;
+  min-height: 347px;
+  align-items: center;
+  padding-block: 56px;
+  color: var(--color-cream-200);
+  background: var(--color-olive-700);
+}
+
+.statementInner {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.statement h2 {
+  max-width: 850px;
+  margin-block-end: 34px;
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 30px;
+  font-weight: 300;
+  line-height: 1.2;
+  text-wrap: wrap;
+}
+
+.statement h2 strong {
+  font-weight: 700;
+}
+
+.ministries {
+  display: block;
+  min-height: 1275px;
+  padding-block: 128px;
+  scroll-margin-block-start: 24px;
+  background: var(--color-linen-100);
+}
+
+.sectionHeading {
+  max-width: 690px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+
+.sectionHeading .eyebrow {
+  justify-content: center;
+}
+
+.sectionHeading h2 {
+  margin-block-end: 20px;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.25;
+}
+
+.sectionHeading > p:not(.eyebrow) {
+  margin-block-end: 0;
+  color: var(--color-olive-700);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.ministryGrid {
+  display: grid;
+  max-width: 920px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-inline: auto;
+}
+
+.ministryCard {
+  position: relative;
+  display: flex;
+  height: 225px;
+  overflow: hidden;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 20px;
+  border-radius: var(--radius-card);
+  background: var(--color-olive-900);
+  box-shadow: 0 2px 5px rgb(0 0 0 / 53%);
+  text-decoration: none;
+}
+
+.ministryCard::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(transparent 45%, rgb(0 0 0 / 72%));
+  content: "";
+}
+
+.ministryCard img {
+  object-fit: cover;
+}
+
+.ministryCard:nth-child(9) img {
+  object-position: left center;
+}
+
+.ministryCard > a {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 40px;
+  border-radius: var(--radius-pill);
+  color: var(--color-white);
+  background: var(--color-action-strong);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.residency {
+  display: flex;
+  min-height: 806px;
+  align-items: center;
+  padding-block: 128px;
+  background: var(--color-sage-300);
+}
+
+.residencyGrid,
+.volunteerGrid,
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 64px;
+  align-items: center;
+}
+
+.residencyCopy > p:not(.eyebrow),
+.volunteerCopy > p:not(.eyebrow),
+.contactCopy > p:not(.eyebrow) {
+  margin-block-end: 24px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.residencyCopy {
+  color: #434b3b;
+}
+
+.residencyCopy h2 {
+  color: #434b3b;
+}
+
+.residencyCopy ul {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  margin: 0 30px;
+  list-style: none;
+}
+
+.residencyCopy li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.residencyCopy li > span {
+  display: grid;
+  width: 18px;
+  height: 18px;
+  flex: none;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--color-white);
+  background: var(--color-action-strong);
+}
+
+.residencyCopy li svg {
+  width: 12px;
+  stroke-width: 3;
+}
+
+.residencyImage,
+.volunteerImage {
+  position: relative;
+  height: 460px;
+  overflow: visible;
+  border: 4px solid var(--color-sand-300);
+  border-radius: 20px;
+  background: var(--color-linen-100);
+  box-shadow: 0 12px 30px rgb(45 50 39 / 10%);
+}
+
+.residencyImage img,
+.volunteerImage img {
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.residencyImage img {
+  object-position: center;
+}
+
+.giving {
+  display: flex;
+  min-height: 915px;
+  align-items: center;
+  padding-block: 128px;
+  color: var(--color-cream-200);
+  background: var(--color-olive-700);
+}
+
+.givingHeading h2,
+.givingHeading > p:not(.eyebrow) {
+  color: var(--color-cream-200);
+}
+
+.givingGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.givingCard {
+  display: flex;
+  min-height: 281px;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px;
+  border: 3px solid rgb(194 200 185 / 40%);
+  border-radius: 14px;
+  color: var(--color-cream-200);
+}
+
+.givingCardFeatured {
+  border-color: rgb(255 255 255 / 25%);
+  background: var(--color-action-strong);
+}
+
+.givingCard .eyebrow {
+  display: block;
+  margin-block-end: 18px;
+  color: var(--color-sand-300);
+  font-size: 16px;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.givingCard .eyebrow::before,
+.givingCard .eyebrow::after {
+  display: none;
+}
+
+.givingCard h3 {
+  margin-block-end: 12px;
+  color: var(--color-cream-200);
+  font-family: var(--font-body);
+  font-size: 24px;
+  line-height: 1.167;
+}
+
+.givingCard p:not(.eyebrow) {
+  margin: 0;
+  color: var(--color-cream-200);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.givingHeading .eyebrow {
+  color: var(--color-sand-300);
+}
+
+.givingCardFeatured h3,
+.givingCardFeatured p:not(.eyebrow),
+.givingCardFeatured .eyebrow {
+  color: var(--color-white);
+}
+
+.centeredButton {
+  display: flex;
+  justify-content: center;
+  margin-block-start: 48px;
+}
+
+.volunteer {
+  display: flex;
+  min-height: 619px;
+  align-items: center;
+  padding-block: 80px;
+  background: var(--color-linen-100);
+}
+
+.volunteerImage {
+  height: 400px;
+}
+
+.volunteerImage img {
+  object-position: center;
+}
+
+.volunteerBadge {
+  min-width: 166px;
+  min-height: 62px;
+  inset-inline-start: -24px;
+  inset-block-end: -16px;
+  justify-items: start;
+  border-radius: 16px;
+  background: var(--color-action-strong);
+}
+
+.volunteerBadge strong {
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 17px;
+}
+
+.volunteerBadge span {
+  color: var(--color-white);
+  font-size: 8px;
+}
+
+.contact {
+  display: flex;
+  min-height: 638px;
+  align-items: center;
+  padding-block: 128px;
+  scroll-margin-block-start: 24px;
+  background: var(--color-canvas-100);
+}
+
+.contactCopy > p:not(.eyebrow) {
+  max-width: 500px;
+  font-size: 17px;
+}
+
+.contactDetail {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-block-start: 18px;
+}
+
+.contactDetail > span {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--color-sand-300);
+}
+
+.contactDetail svg {
+  width: 20px;
+}
+
+.contactDetail p {
+  display: grid;
+  gap: 1px;
+  margin: 0;
+  font-size: 13px;
+}
+
+.contactDetail strong {
+  font-size: 14px;
+}
+
+.contactDetail a {
+  text-decoration: none;
+}
+
+@media (max-width: 61.9375rem) {
+  .hero {
+    min-height: calc(100svh - 141px);
+  }
+
+  .heroInner {
+    width: min(100% - 64px, var(--container-default));
+    padding-block-start: 64px;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .mission {
+    display: block;
+    min-height: 1472px;
+  }
+
+  .missionGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .breakDesktopMobile,
+  .breakDesktop,
+  .breakTabletMobile {
+    display: none;
+  }
+
+  .missionCopy {
+    order: -1;
+  }
+
+  .missionCopy > p:not(.eyebrow) {
+    margin-block-end: 32px;
+    font-size: 18px;
+    line-height: 1.625;
+  }
+
+  .missionCopy > p:not(.eyebrow):last-of-type {
+    margin-block-end: 20px;
+  }
+
+  .collage {
+    width: 100%;
+  }
+
+  .ministries {
+    min-height: 1722px;
+  }
+
+  .ministryGrid {
+    max-width: 656px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .residency {
+    min-height: 1180px;
+  }
+
+  .residencyGrid,
+  .volunteerGrid,
+  .contactGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .residencyImage,
+  .volunteerImage {
+    width: 100%;
+  }
+
+  .giving {
+    min-height: 1105px;
+  }
+
+  .givingGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .volunteer {
+    min-height: 917px;
+  }
+
+  .contactGrid {
+    gap: 40px;
+  }
+}
+
+@media (min-width: 48rem) and (max-width: 61.9375rem) {
+  .missionCopy > p:not(.eyebrow) {
+    margin-block-end: 24px;
+    font-size: 19px;
+    line-height: 1.6;
+  }
+
+  .breakTabletMobile {
+    display: block;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .hero {
+    min-height: 750px;
+  }
+
+  .heroImage {
+    object-position: 55% center;
+  }
+
+  .heroInner {
+    width: calc(100% - 48px);
+    justify-content: center;
+    padding-block-start: 58px;
+  }
+
+  .heroContent {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .hero .eyebrow {
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .heroContent > p:not(.eyebrow) {
+    max-width: 350px;
+  }
+
+  .hero .buttonRow {
+    justify-content: center;
+  }
+
+  .mission,
+  .residency,
+  .giving,
+  .contact {
+    padding-block: 96px;
+  }
+
+  .mission {
+    min-height: 1521px;
+  }
+
+  .missionGrid {
+    gap: 32px;
+  }
+
+  .missionCopy h2,
+  .residencyCopy h2,
+  .volunteerCopy h2,
+  .contactCopy h2,
+  .sectionHeading h2 {
+    font-size: 32px;
+  }
+
+  .collage {
+    height: 312px;
+  }
+
+  .breakDesktopMobile,
+  .breakTabletMobile {
+    display: block;
+  }
+
+  .statement {
+    min-height: 475px;
+  }
+
+  .statement h2 {
+    font-size: 24px;
+  }
+
+  .ministries {
+    display: block;
+    min-height: 2575px;
+    padding-block: 96px;
+  }
+
+  .sectionHeading {
+    margin-block-end: 48px;
+  }
+
+  .ministryGrid {
+    max-width: 310px;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .ministryCard {
+    height: 200px;
+  }
+
+  .ministryCard:nth-child(3) {
+    height: 300px;
+  }
+
+  .ministryCard > a {
+    width: 100%;
+  }
+
+  .residency {
+    min-height: 1326px;
+  }
+
+  .residencyGrid {
+    gap: 32px;
+  }
+
+  .residencyImage {
+    height: 460px;
+  }
+
+  .giving {
+    min-height: 1450px;
+  }
+
+  .givingGrid {
+    width: 100%;
+    max-width: 342px;
+    grid-template-columns: 1fr;
+    margin-inline: auto;
+  }
+
+  .givingCard {
+    min-height: 281px;
+  }
+
+  .volunteerGrid {
+    gap: 32px;
+  }
+
+  .volunteerImage {
+    height: 360px;
+  }
+
+  .contactGrid {
+    gap: 32px;
+  }
+}
+
+@media (max-width: 29.9375rem) {
+  .heroInner {
+    width: calc(100% - 40px);
+  }
+
+  .hero h1 {
+    font-size: 36px;
+    line-height: 1.14;
+  }
+
+  .heroContent > p:not(.eyebrow) {
+    font-size: 14px;
+  }
+
+  .buttonRow {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .buttonRow > a {
+    width: 100%;
+  }
+
+  .missionGrid,
+  .residencyGrid,
+  .volunteerGrid,
+  .contactGrid {
+    gap: 28px;
+  }
+
+  .collage {
+    gap: 8px;
+  }
+
+  .collageRight {
+    gap: 8px;
+  }
+
+  .collageImage {
+    border-width: 3px;
+    border-radius: 14px;
+  }
+
+  .residencyImage,
+  .volunteerImage {
+    border-width: 3px;
+  }
+
+  .contactCopy > p:not(.eyebrow) {
+    font-size: 15px;
+  }
+}

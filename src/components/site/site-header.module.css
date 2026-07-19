@@ -1,0 +1,352 @@
+.header {
+  position: relative;
+  z-index: 100;
+  color: var(--color-olive-700);
+  background: var(--color-cream-100);
+}
+
+.announcement {
+  display: flex;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding-inline: 16px;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.announcement > svg {
+  width: 15px;
+  color: var(--color-terracotta-500);
+}
+
+.announcement a {
+  display: inline-flex;
+  min-height: 24px;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  color: var(--color-white);
+  background: var(--color-action-strong);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.announcementAccent {
+  height: 8px;
+  background: var(--color-terracotta-500);
+}
+
+.navigationBar {
+  height: 86px;
+  border-block-end: 6px solid var(--color-olive-700);
+  background: var(--color-cream-100);
+  box-shadow: var(--shadow-nav);
+}
+
+.navigationInner {
+  display: flex;
+  width: min(100% - 80px, 68.125rem);
+  height: 80px;
+  align-items: center;
+  justify-content: space-between;
+  margin-inline: auto;
+}
+
+.logoLink {
+  flex: none;
+}
+
+.logo {
+  width: 175px;
+  height: auto;
+}
+
+.desktopNav {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  gap: 40px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.desktopNav > a:not(.donateButton) {
+  display: inline-flex;
+  height: 100%;
+  align-items: center;
+  text-decoration: none;
+}
+
+.desktopNav > a:not(.donateButton):hover,
+.desktopNav > a:not(.donateButton):focus-visible,
+.dropdownTrigger:hover,
+.dropdownTrigger:focus-visible {
+  color: var(--color-action-strong);
+}
+
+.dropdown {
+  position: relative;
+  height: 100%;
+}
+
+.dropdownTrigger {
+  position: relative;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  font-weight: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+}
+
+.dropdownTrigger svg {
+  width: 16px;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.dropdownTrigger[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu {
+  position: absolute;
+  inset-block-start: 60px;
+  inset-inline-start: -12px;
+  display: grid;
+  width: 272px;
+  padding: 10px;
+  border-block-start: 7px solid var(--color-olive-700);
+  border-radius: 0 0 var(--radius-dropdown) var(--radius-dropdown);
+  background: var(--color-linen-100);
+  box-shadow: var(--shadow-menu);
+}
+
+.dropdownMenu a {
+  min-height: 40px;
+  padding: 9px 13px;
+  color: var(--color-olive-700);
+  font-family: var(--font-heading);
+  font-size: 16px;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.dropdownMenu a:hover,
+.dropdownMenu a:focus-visible {
+  color: var(--color-burgundy-700);
+  background: var(--color-ivory-100);
+}
+
+.desktopDivider {
+  width: 1px;
+  height: 46px;
+  background: var(--color-sand-300);
+}
+
+.donateButton,
+.tabletDonate {
+  display: inline-flex;
+  min-width: 130px;
+  min-height: 47px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 30px;
+  border: 2px solid rgb(255 255 255 / 30%);
+  border-radius: var(--radius-pill);
+  color: var(--color-white);
+  background: var(--color-action-strong);
+  box-shadow: 0 3px 7px rgb(45 50 39 / 20%);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.mobileActions,
+.drawer {
+  display: none;
+}
+
+@media (max-width: 61.9375rem) {
+  .header:has(.drawer) {
+    position: fixed;
+    inset: 0 0 auto;
+    width: 100%;
+  }
+
+  .header:has(.drawer) .navigationBar {
+    height: 73px;
+    border-block-end: 0;
+  }
+
+  .navigationBar {
+    height: 79px;
+  }
+
+  .navigationInner {
+    width: min(100% - 36px, var(--container-shell));
+    height: 73px;
+  }
+
+  .logo {
+    width: 150px;
+  }
+
+  .desktopNav {
+    display: none;
+  }
+
+  .mobileActions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .menuButton {
+    display: inline-grid;
+    width: 48px;
+    height: 48px;
+    padding: 7px;
+    place-items: center;
+    border: 0;
+    color: var(--color-olive-700);
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .menuButton svg {
+    width: 34px;
+  }
+
+  .drawer {
+    position: fixed;
+    inset: 123px 0 0;
+    z-index: 99;
+    display: block;
+    overflow-y: auto;
+    padding: 0 24px 48px;
+    background: var(--color-linen-100);
+  }
+
+  .drawer > a,
+  .mobileMinistries > button {
+    display: flex;
+    width: 100%;
+    min-height: 60px;
+    align-items: center;
+    padding: 16px;
+    border: 0;
+    border-block-end: 1px solid rgb(86 95 76 / 18%);
+    color: var(--color-olive-700);
+    background: transparent;
+    font-family: var(--font-body);
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.15;
+    text-align: left;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .mobileMinistries > button {
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  .mobileMinistries > button svg {
+    width: 18px;
+    transition: transform var(--duration-fast) var(--ease-standard);
+  }
+
+  .mobileMinistries > button[aria-expanded="true"] svg {
+    transform: rotate(180deg);
+  }
+
+  .mobileMinistriesMenu {
+    display: grid;
+    padding: 8px;
+    border-radius: 0 0 var(--radius-panel) var(--radius-panel);
+    background: var(--color-ivory-100);
+  }
+
+  .mobileMinistriesMenu a {
+    display: flex;
+    min-height: 46px;
+    align-items: center;
+    padding: 11px 14px;
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .mobilePartner {
+    display: none !important;
+  }
+}
+
+@media (max-width: 29.9375rem) {
+  .announcement {
+    gap: 6px;
+    font-size: 13px;
+  }
+
+  .announcement a {
+    padding-inline: 10px;
+    font-size: 10px;
+  }
+
+  .navigationInner {
+    width: calc(100% - 40px);
+  }
+
+  .logo {
+    width: 128px;
+  }
+
+  .logoLink {
+    margin-inline-start: 20px;
+  }
+
+  .tabletDonate {
+    display: none;
+  }
+
+  .mobileActions {
+    gap: 0;
+  }
+
+  .menuButton {
+    margin-inline-end: -8px;
+  }
+
+  .menuButton svg {
+    width: 28px;
+  }
+
+  .menuButton[aria-expanded="true"] svg {
+    width: 34px;
+  }
+
+  .drawer {
+    padding-inline: 20px;
+  }
+
+  .mobilePartner {
+    display: flex !important;
+  }
+}

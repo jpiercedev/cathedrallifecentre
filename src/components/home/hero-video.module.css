@@ -1,0 +1,122 @@
+.shell {
+  position: absolute;
+  z-index: 3;
+  display: none;
+  width: min(46vw, 528px);
+  overflow: hidden;
+  border: 0;
+  aspect-ratio: 16 / 9;
+  background: transparent;
+  inset-block-start: 50%;
+  inset-inline-end: max(40px, calc((100vw - 68.5rem) / 2));
+  transform: translateY(-50%);
+}
+
+.playTarget {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  inset: 0;
+  place-items: center;
+}
+
+.playBadge {
+  display: grid;
+  width: 64px;
+  height: 64px;
+  border: 2px solid rgb(255 255 255 / 78%);
+  border-radius: 50%;
+  color: var(--color-white);
+  background: rgb(45 50 39 / 70%);
+  opacity: 0;
+  place-items: center;
+  transform: scale(0.92);
+  transition:
+    opacity var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.playBadge svg {
+  width: 28px;
+  margin-inline-start: 3px;
+}
+
+.playTarget:hover .playBadge,
+.playTarget:focus-visible .playBadge {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.frame {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  inset: 0;
+}
+
+.fallback {
+  position: absolute;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 12px;
+  padding: 24px;
+  color: var(--color-white);
+  background: rgb(45 50 39 / 92%);
+  inset: 0;
+  text-align: center;
+}
+
+.fallback p {
+  margin: 0;
+}
+
+.fallback button,
+.fallback a,
+.replay {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border: 1px solid var(--color-cream-200);
+  border-radius: var(--radius-pill);
+  color: var(--color-white);
+  background: rgb(45 50 39 / 72%);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.fallback svg,
+.replay svg {
+  width: 18px;
+}
+
+.replay {
+  position: absolute;
+  z-index: 3;
+  inset-block-end: 18px;
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+}
+
+@media (min-width: 62rem) {
+  .shell {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .playBadge {
+    transition: none;
+  }
+}
