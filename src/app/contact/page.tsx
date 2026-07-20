@@ -22,7 +22,11 @@ export default function ContactPage() {
         <div className={styles.layout}>
           <aside aria-labelledby="contact-intro-title" className={styles.introCard}>
             <p className={styles.eyebrow}>{intro.eyebrow}</p>
-            <h2 id="contact-intro-title">{intro.title}</h2>
+            <h2 id="contact-intro-title">
+              We’re here to{" "}
+              <br />
+              help.
+            </h2>
             <p className={styles.description}>{intro.description}</p>
             <ul>
               {intro.reasons.map((reason) => (
