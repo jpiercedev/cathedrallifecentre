@@ -18,7 +18,6 @@ const deferredPhaseRoutes = new Set([
   "/classes",
   "/coaching",
   "/contact",
-  "/foster-care",
   "/grace-garage",
   "/groups",
   "/volunteer",

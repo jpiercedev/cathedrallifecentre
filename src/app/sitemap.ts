@@ -33,5 +33,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    {
+      url: new URL("/foster-care", siteConfig.productionUrl).toString(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
   ];
 }

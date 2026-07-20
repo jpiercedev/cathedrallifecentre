@@ -125,7 +125,7 @@ export function InteriorHero({
           ) : null}
           <h1 id={titleId}>{children}</h1>
           <span aria-hidden="true" className={styles.rule} />
-          <p>{description}</p>
+          <p className={styles.description}>{description}</p>
           {action || secondaryAction ? (
             <div className={styles.actions}>
               {action ? (
