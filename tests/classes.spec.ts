@@ -158,13 +158,16 @@ test("Classes responds at desktop, tablet, and mobile widths", async ({ page }) 
   expectNear(desktopHero!.height, 496);
   expectNear(desktopProgram!.y, 631.5);
   expectNear(desktopProgram!.height, 1011);
-  expectNear(desktopGrid!.x, 98);
+  expectNear(
+    desktopGrid!.x,
+    ((await page.evaluate(() => document.documentElement.clientWidth)) - desktopGrid!.width) / 2,
+  );
   expectNear(desktopGrid!.width, 1152);
-  expectNear(desktopHeading!.x, 138);
+  expectNear(desktopHeading!.x - desktopGrid!.x, 40);
   expectNear(desktopHeading!.y, 761);
   expectNear(desktopHeading!.width, 504);
   expectNear(desktopHeading!.height, 156, 1.5);
-  expectNear(desktopImageShell!.x, 706);
+  expectNear(desktopImageShell!.x - desktopGrid!.x, 608);
   expectNear(desktopImageShell!.y, 720.5);
   expectNear(desktopImageShell!.width, 504);
   expectNear(desktopImageShell!.height, 300);

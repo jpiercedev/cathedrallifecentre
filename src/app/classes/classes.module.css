@@ -20,7 +20,7 @@
 }
 
 .currentList.currentList li {
-  color: rgb(86 95 76 / 83%);
+  color: var(--color-olive-700);
 }
 
 .comingBlock {
@@ -82,6 +82,10 @@
 }
 
 @media (max-width: 29.9375rem) {
+  .quote {
+    margin-block-end: 68.8125px;
+  }
+
   .currentList.currentList li {
     align-items: center;
   }
