@@ -80,7 +80,7 @@
 }
 
 .scripture cite {
-  color: rgb(230 218 196 / 55%);
+  color: var(--color-white);
   font-family: var(--font-nav-source);
   font-size: 12px;
   font-style: normal;
