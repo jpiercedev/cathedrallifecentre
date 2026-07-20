@@ -63,7 +63,7 @@
 .introCard h2 {
   margin: 1.1px 0 20px;
   color: var(--color-white);
-  letter-spacing: -1px;
+  letter-spacing: -1.5px;
 }
 
 .description {
