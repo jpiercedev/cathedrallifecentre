@@ -15,8 +15,8 @@ export const fosterCareContent = {
       "/assets/pages/foster-care/woman-hugging-child-in-kitchen.jpg",
   },
   scripture: {
-    lead: '“Let us not love with words or speech but with',
-    emphasis: 'actions and in truth.”',
+    lead: '"Let us not love with words or speech but with',
+    emphasis: 'actions and in truth."',
     reference: "1 John 3:18",
   },
   heart: {

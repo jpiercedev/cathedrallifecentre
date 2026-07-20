@@ -33,7 +33,7 @@ export default function FosterCarePage() {
         eyebrow={hero.eyebrow}
         heroClassName={styles.hero}
         image={hero.image}
-        imagePosition="50% 50%"
+        imagePosition="50% 35%"
         innerClassName={styles.heroInner}
         overlayClassName={styles.heroOverlay}
         scrollCueClassName={styles.scrollCue}
@@ -47,9 +47,7 @@ export default function FosterCarePage() {
 
       <section className={styles.scripture} id="clc-content">
         <blockquote>
-          <span aria-hidden="true" className={styles.quoteMark}>
-            “
-          </span>
+          <span aria-hidden="true" className={styles.quoteMark} />
           <p>
             {scripture.lead} <strong>{scripture.emphasis}</strong>
           </p>
@@ -65,7 +63,7 @@ export default function FosterCarePage() {
               alt={heart.imageAlt}
               fill
               quality={85}
-              sizes="(max-width: 767px) calc(100vw - 48px), 160px"
+              sizes="(max-width: 479px) calc(100vw - 40px), (max-width: 767px) calc(100vw - 48px), (max-width: 991px) calc(100vw - 64px), 160px"
               src={heart.image}
             />
           </div>
@@ -107,7 +105,7 @@ export default function FosterCarePage() {
                   alt={programs.imageAlt}
                   fill
                   quality={85}
-                  sizes="(max-width: 991px) calc(100vw - 48px), 504px"
+                  sizes="(max-width: 479px) calc(100vw - 40px), (max-width: 767px) calc(100vw - 48px), (max-width: 991px) calc(100vw - 64px), 504px"
                   src={programs.image}
                 />
               </div>
@@ -148,12 +146,14 @@ export default function FosterCarePage() {
                 );
               })}
             </div>
-            <ButtonLink
-              className={styles.primaryButton}
-              href={programs.action.href}
-            >
-              {programs.action.label}
-            </ButtonLink>
+            <div className={styles.primaryButtonWrap}>
+              <ButtonLink
+                className={styles.primaryButton}
+                href={programs.action.href}
+              >
+                {programs.action.label}
+              </ButtonLink>
+            </div>
           </div>
         </Container>
       </section>
@@ -193,9 +193,7 @@ export default function FosterCarePage() {
             </div>
           </div>
 
-          <div className={styles.formCard}>
-            <FosterContactForm />
-          </div>
+          <FosterContactForm className={styles.formCard} />
         </Container>
       </section>
     </main>

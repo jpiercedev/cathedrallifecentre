@@ -22,9 +22,14 @@
 }
 
 .heroInner h1 {
+  margin-block-start: 20px;
   font-size: 3.8rem;
   font-weight: 500;
   line-height: 1.1;
+}
+
+.heroInner > nav + div {
+  margin-block-start: 32px;
 }
 
 .heroInner h1 + span {
@@ -52,20 +57,19 @@
 }
 
 .quoteMark {
-  height: 48px;
-  color: var(--color-terracotta-500);
-  font-family: var(--font-heading);
-  font-size: 4.5rem;
-  font-weight: 700;
-  line-height: 0.9;
+  width: 32px;
+  height: 32px;
+  margin-block-end: 24px;
+  background: url("/assets/pages/foster-care/quote-left.svg") center / contain
+    no-repeat;
 }
 
 .scripture p {
   max-width: 816px;
-  margin: 8px 0 26px;
+  margin: 0 0 24px;
   color: rgb(255 255 255 / 88%);
   font-family: var(--font-heading);
-  font-size: 2.4rem;
+  font-size: clamp(24px, 3vw, 38.4px);
   font-style: italic;
   line-height: 1.5;
 }
@@ -76,13 +80,13 @@
 }
 
 .scripture cite {
-  color: var(--color-white);
+  color: rgb(230 218 196 / 55%);
   font-family: var(--font-nav-source);
-  font-size: 11px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 700;
-  letter-spacing: 0.26em;
-  line-height: 1.5;
+  letter-spacing: 2.64px;
+  line-height: 18px;
   text-transform: uppercase;
 }
 
@@ -109,6 +113,7 @@
   display: grid;
   grid-template-columns: 160px minmax(0, 1fr);
   gap: 56px;
+  align-items: center;
 }
 
 .heartImage {
@@ -116,8 +121,9 @@
   width: 160px;
   height: 420px;
   overflow: hidden;
-  border-radius: 16px;
-  box-shadow: 0 6px 18px rgb(45 50 39 / 10%);
+  border: 4px solid #e6dac4;
+  border-radius: 24px;
+  box-shadow: 0 12px 40px rgb(0 0 0 / 13%);
 }
 
 .heartImage img,
@@ -139,7 +145,7 @@
 
 .heartCopy h2 {
   margin: 0 0 24px;
-  font-size: 2.6rem;
+  font-size: clamp(28.8px, 3.5vw, 41.6px);
   line-height: 1.25;
   text-wrap: wrap;
 }
@@ -151,11 +157,11 @@
 }
 
 .bodyCopy + .bodyCopy {
-  margin-block-start: 24px;
+  margin-block-start: 20px;
 }
 
-.programsCopy .bodyCopy + .bodyCopy {
-  margin-block-start: 20px;
+.heartCopy .bodyCopy {
+  font-size: 16.8px;
 }
 
 .programsSection {
@@ -167,27 +173,30 @@
 .programsGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 56px;
+  gap: 64px;
 }
 
 .programsCopy h2 {
   margin: 0 0 24px;
-  font-size: 2.4rem;
+  font-size: clamp(28.8px, 3vw, 38.4px);
   line-height: 1.25;
   text-wrap: wrap;
 }
 
 .timingCard {
-  overflow: hidden;
+  overflow: visible;
   margin-block-start: 30px;
   border-radius: 16px;
-  background: #eadcc1;
+  background: #e6dac4;
 }
 
 .timingImage {
   position: relative;
   width: 100%;
   height: 280px;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgb(0 0 0 / 10%);
 }
 
 .timingCopy {
@@ -211,96 +220,131 @@
 }
 
 .programList {
+  display: flow-root;
   margin-block-start: 0;
 }
 
 .programList article {
-  display: grid;
-  min-height: 120px;
-  grid-template-columns: 48px minmax(0, 1fr);
+  display: flex;
   gap: 20px;
-  align-items: center;
-  border-bottom: 1px solid rgb(86 95 76 / 13%);
+  align-items: flex-start;
+  padding-block-end: 32px;
+  border-bottom: 1px solid rgb(86 95 76 / 12%);
+  margin-block-end: 32px;
 }
 
 .programNumber {
-  display: grid;
+  display: flex;
   width: 48px;
   height: 48px;
+  flex: none;
+  align-items: center;
+  justify-content: center;
   place-items: center;
   border-radius: 12px;
   color: var(--color-white);
   background: var(--color-olive-700);
   font-family: var(--font-heading);
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.programList article:first-child .programNumber {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgb(86 95 76 / 83%);
 }
 
 .comingProgram .programNumber {
+  margin-block-start: 3px;
   color: var(--color-olive-700);
-  background: rgb(86 95 76 / 10%);
+  background: rgb(86 95 76 / 15%);
 }
 
 .programStatus {
-  margin: 0 0 7px;
+  margin: 0 0 4px;
   color: var(--color-terracotta-700);
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  line-height: 1.4;
+  letter-spacing: 1.35px;
+  line-height: 13.5px;
   text-transform: uppercase;
 }
 
 .programTitleRow {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 8px;
 }
 
 .programTitleRow h3 {
+  margin: 0 0 8px;
+  font-size: 19.2px;
+  line-height: 28.8px;
+}
+
+.comingProgram .programTitleRow {
+  margin-block-end: 4px;
+}
+
+.comingProgram .programTitleRow h3 {
   margin: 0;
-  font-size: 1.2rem;
-  line-height: 1.25;
 }
 
 .comingSoon {
-  padding: 5px 13px;
-  border: 1px solid rgb(86 95 76 / 28%);
+  margin-inline-start: 10px;
+  padding: 4px 12px;
+  border: 1px solid rgb(86 95 76 / 25%);
   border-radius: 999px;
   color: var(--color-olive-700);
-  background: rgb(86 95 76 / 8%);
+  background: rgb(86 95 76 / 12%);
   font-size: 9px;
   font-weight: 700;
-  letter-spacing: 0.16em;
-  line-height: 1.2;
+  letter-spacing: 1.35px;
+  line-height: 13.5px;
   text-transform: uppercase;
   white-space: nowrap;
 }
 
+.primaryButtonWrap {
+  width: fit-content;
+  margin-block-start: 16px;
+}
+
 .primaryButton {
-  display: inline-flex;
-  min-width: 185px;
-  min-height: 49px;
-  align-items: center;
-  justify-content: center;
-  margin-block-start: 48px;
-  padding: 12px 30px;
+  display: block;
+  box-sizing: border-box;
+  align-self: center;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 12px 32px;
   border: 3px solid rgb(255 255 255 / 25%);
   border-radius: 30px;
+  outline-color: rgb(255 255 255);
   color: var(--color-white);
-  background: var(--color-terracotta-500);
-  box-shadow: 0 4px 7px rgb(45 50 39 / 15%);
+  background: rgb(223 123 79);
+  box-shadow:
+    rgb(0 0 0 / 0%) 0 0,
+    rgb(0 0 0 / 0%) 0 0,
+    rgb(0 0 0 / 10%) 0 4px 6px -1px,
+    rgb(0 0 0 / 10%) 0 2px 4px -2px;
+  font-family: Montserrat, sans-serif;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 1.54px;
   line-height: 1.5;
   text-decoration: none;
   text-transform: uppercase;
+  transition: none !important;
+  white-space: nowrap;
 }
 
 .primaryButton:hover,
 .primaryButton:focus-visible {
   color: var(--color-white);
-  background: var(--color-terracotta-500);
+  background: rgb(223 123 79);
   transform: none;
 }
 
@@ -324,7 +368,7 @@
 
 .contactCopy h2 {
   margin: 0 0 20px;
-  font-size: 2.4rem;
+  font-size: clamp(28.8px, 3vw, 38.4px);
   line-height: 1.25;
   text-wrap: wrap;
 }
@@ -337,12 +381,12 @@
 
 .contactDetails {
   display: grid;
-  gap: 18px;
+  gap: 20px;
 }
 
 .contactDetail {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 16px;
 }
 
@@ -354,7 +398,7 @@
   place-items: center;
   border-radius: 10px;
   color: var(--color-cream-200);
-  background: var(--color-olive-700);
+  background: rgb(86 95 76 / 83%);
 }
 
 .contactIcon svg {
@@ -365,123 +409,51 @@
   margin: 0;
   font-size: 14px;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 20px;
 }
 
 .contactDetail address,
 .contactDetail a {
   display: grid;
   margin: 0;
-  font-size: 13px;
+  font-size: 14px;
   font-style: normal;
-  line-height: 1.55;
+  line-height: 20px;
   text-decoration: none;
 }
 
 .formCard {
   align-self: start;
-  min-height: 326.5px;
-  padding: 40px;
-  border-radius: 16px;
-  background: var(--color-white);
-  box-shadow: 0 2px 20px rgb(0 0 0 / 6%);
-}
-
-.formField label,
-.messageCaption {
-  display: block;
-  margin: 0 0 7px;
-  color: var(--color-olive-700);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  line-height: 1.5;
-  text-transform: uppercase;
-}
-
-.formField input {
   width: 100%;
-  height: 38px;
-  margin-block-end: 17px;
-  padding: 7px 12px;
-  border: 1px solid rgb(86 95 76 / 35%);
-  border-radius: 0;
-  color: var(--color-olive-900);
-  background: var(--color-white);
-  font-size: 14px;
-}
-
-.formField:first-child input {
-  background: var(--color-canvas-100);
-}
-
-.formField input::placeholder {
-  color: rgb(86 95 76 / 48%);
-}
-
-.messageCaption {
-  margin-block-end: 20px;
-}
-
-.contactForm .primaryButton {
-  width: 100%;
-  min-height: 55px;
-  margin: 0;
-  cursor: pointer;
-}
-
-.contactForm .primaryButton:disabled {
-  cursor: wait;
-  opacity: 0.78;
-}
-
-.formError {
-  margin: 12px 0 0;
-  color: #8f2f24;
-  font-size: 13px;
-  line-height: 1.45;
-}
-
-.formSuccess {
-  display: grid;
-  min-height: 246px;
-  place-content: center;
-  justify-items: center;
-  gap: 14px;
-  text-align: center;
-}
-
-.successIcon {
-  display: grid;
-  width: 54px;
-  height: 54px;
-  place-items: center;
-  border-radius: 50%;
-  color: var(--color-white);
-  background: var(--color-olive-700);
-}
-
-.successIcon svg {
-  width: 28px;
-}
-
-.formSuccess p {
-  margin: 0;
-  font-family: var(--font-heading);
-  font-size: 1.35rem;
 }
 
 @media (max-width: 61.9375rem) {
-  .heroInner.heroInner,
-  .sourceContainer.sourceContainer,
-  .contactContainer.contactContainer {
+  .heroInner.heroInner {
     width: calc(100% - 48px);
     padding-inline: 0;
   }
 
+  .heroInner h1 {
+    font-size: 3rem;
+  }
+
+  .sourceContainer.sourceContainer,
+  .contactContainer.contactContainer {
+    width: calc(100% - 64px);
+    padding-inline: 0;
+  }
+
+  .scripture blockquote {
+    width: calc(100% - 48px);
+  }
+
   .heartGrid {
-    grid-template-columns: 160px minmax(0, 1fr);
+    grid-template-columns: 1fr;
     gap: 40px;
+  }
+
+  .heartImage {
+    width: 100%;
   }
 
   .programsGrid,
@@ -489,74 +461,36 @@
     grid-template-columns: 1fr;
   }
 
-  .programsSection {
-    padding-block: 72px;
+  .programsGrid {
+    gap: 40px;
   }
 
-  .contactSection {
-    padding-block: 64px;
+  .timingCard {
+    margin-block-start: 0;
   }
 
-  .formCard {
-    width: 100%;
+  .contactGrid {
+    gap: 32px;
   }
 }
 
 @media (max-width: 47.9375rem) {
-  .hero {
-    min-height: 554px;
-  }
-
   .heroInner h1 {
     font-size: 2.625rem;
   }
 
-  .scripture {
-    min-height: 0;
-    padding-block: 64px;
-  }
-
-  .scripture blockquote {
+  .sourceContainer.sourceContainer,
+  .contactContainer.contactContainer {
     width: calc(100% - 48px);
   }
 
-  .scripture p {
-    font-size: 2rem;
-    line-height: 1.4;
-  }
-
-  .heartSection,
-  .programsSection {
-    padding-block: 64px;
-  }
-
-  .heartGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .heartImage {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
-  }
-
-  .heartCopy h2,
-  .programsCopy h2,
-  .contactCopy h2 {
-    font-size: 2.25rem;
-  }
-
+  .heartGrid,
   .programsGrid {
-    gap: 56px;
-  }
-
-  .formCard {
-    padding: 32px;
+    gap: 32px;
   }
 }
 
 @media (max-width: 29.9375rem) {
-  .heroInner.heroInner,
   .sourceContainer.sourceContainer,
   .contactContainer.contactContainer {
     width: calc(100% - 40px);
@@ -566,51 +500,9 @@
     font-size: 2.25rem;
   }
 
-  .scripture blockquote {
-    width: calc(100% - 40px);
-  }
-
-  .scripture p {
-    font-size: 1.75rem;
-  }
-
-  .heartCopy h2,
-  .programsCopy h2,
-  .contactCopy h2 {
-    font-size: 2rem;
-  }
-
-  .timingImage {
-    height: auto;
-    aspect-ratio: 16 / 9;
-  }
-
-  .programList article {
-    min-height: 112px;
-    grid-template-columns: 44px minmax(0, 1fr);
-    gap: 14px;
-  }
-
-  .programNumber {
-    width: 44px;
-    height: 44px;
-  }
-
-  .programTitleRow {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .primaryButton {
-    width: 100%;
-  }
-
-  .contactSection {
-    padding-block: 48px;
-  }
-
-  .formCard {
-    padding: 32px;
+  .heartGrid,
+  .programsGrid,
+  .contactGrid {
+    gap: 28px;
   }
 }
