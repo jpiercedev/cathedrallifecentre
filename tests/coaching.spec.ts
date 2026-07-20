@@ -144,6 +144,10 @@ test("Coaching responds at desktop, tablet, and mobile widths", async ({ page })
     .locator("main blockquote")
     .evaluateAll((quotes) => quotes.map((quote) => getComputedStyle(quote).lineHeight));
   expect(desktopQuoteLineHeights).toEqual(["24px", "24px"]);
+  await expect(page.getByText("Finances", { exact: true }).locator("..")).toHaveCSS(
+    "color",
+    "rgb(28, 44, 91)",
+  );
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(1363);
 
   await page.emulateMedia({ reducedMotion: "reduce" });
@@ -191,6 +195,21 @@ test("Coaching responds at desktop, tablet, and mobile widths", async ({ page })
   expectNear(tabletHeadingStyle.lineHeight, 43.35625, 0.2);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(768);
 
+  await page.setViewportSize({ width: 600, height: 900 });
+  const compactTabletHeroStyle = await heroHeading.evaluate((element) => {
+    const style = getComputedStyle(element);
+    return {
+      fontSize: style.fontSize,
+      letterSpacing: style.letterSpacing,
+      lineHeight: style.lineHeight,
+    };
+  });
+  expect(compactTabletHeroStyle).toEqual({
+    fontSize: "42px",
+    letterSpacing: "-0.3835px",
+    lineHeight: "47.04px",
+  });
+
   await page.setViewportSize({ width: 390, height: 844 });
   const mobileHero = await hero.boundingBox();
   const mobileHeroHeading = await heroHeading.boundingBox();
@@ -234,6 +253,7 @@ test("Coaching responds at desktop, tablet, and mobile widths", async ({ page })
   });
   expect(mobileStyles.hero.fontSize).toBe("35.2px");
   expect(mobileStyles.hero.lineHeight).toBe("38.72px");
+  await expect(heroHeading).toHaveCSS("letter-spacing", "-0.352px");
   expect(mobileStyles.contact.fontSize).toBe("28px");
   expect(mobileStyles.contact.lineHeight).toBe("35px");
   expect(mobileStyles.programSection.paddingTop).toBe("88px");
@@ -261,7 +281,7 @@ test("Coaching responds at desktop, tablet, and mobile widths", async ({ page })
       };
     });
   expect(utilityButtonStyles).toEqual({
-    backgroundColor: "rgb(223, 123, 79)",
+    backgroundColor: "rgb(177, 97, 63)",
     borderRadius: "20px",
     fontSize: "10px",
     fontWeight: "700",

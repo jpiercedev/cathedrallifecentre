@@ -220,7 +220,7 @@
   background: rgb(86 95 76 / 35%);
 }
 
-.available {
+.topicList li.available {
   color: var(--color-navy-800);
   font-weight: 700;
 }
@@ -351,6 +351,7 @@
 
   .heroInner h1 {
     font-size: 48px;
+    letter-spacing: -0.4955px;
     line-height: 53.76px;
   }
 
@@ -396,6 +397,12 @@
 }
 
 @media (max-width: 47.9375rem) {
+  .heroInner h1 {
+    font-size: 42px;
+    letter-spacing: -0.3835px;
+    line-height: 47.04px;
+  }
+
   .sourceContainer.sourceContainer,
   .contactInner {
     width: calc(100% - 48px);
@@ -443,6 +450,7 @@
 
   .heroInner h1 {
     font-size: 35.2px;
+    letter-spacing: -0.352px;
     line-height: 38.72px;
   }
 

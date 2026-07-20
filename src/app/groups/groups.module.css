@@ -48,6 +48,10 @@
   margin-block-start: 12px;
 }
 
+.activeList li {
+  color: rgb(86 95 76 / 83%);
+}
+
 .comingBlock {
   margin-block-start: 36px;
 }
@@ -102,6 +106,10 @@
 }
 
 @media (max-width: 61.9375rem) {
+  .activeList li {
+    color: var(--color-navy-800);
+  }
+
   .programImage {
     height: auto;
     aspect-ratio: 504 / 278;
