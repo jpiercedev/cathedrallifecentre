@@ -11,19 +11,20 @@
 }
 
 .quote {
-  margin-block-end: 0;
+  margin-block-end: 32px;
 }
 
 .currentLabel {
   margin-block-end: 16px;
+  letter-spacing: 2.2px;
 }
 
-.currentList li + li {
-  margin-block-start: 12px;
+.currentList.currentList li {
+  color: rgb(86 95 76 / 83%);
 }
 
 .comingBlock {
-  margin-block-start: 36px;
+  margin-block-start: 32px;
 }
 
 .comingLabel {
@@ -31,7 +32,7 @@
   color: #7d5c25;
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 2.2px;
   line-height: 15px;
   text-transform: uppercase;
 }
@@ -43,30 +44,45 @@
 }
 
 .comingList li {
-  position: relative;
-  padding-inline-start: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding-inline-start: 8px;
   color: var(--color-olive-700);
   font-size: 14px;
   line-height: 20px;
 }
 
 .comingList li + li {
-  margin-block-start: 12px;
+  margin-block-start: 14px;
 }
 
 .comingList li::before {
-  position: absolute;
-  top: 7px;
-  left: 5px;
   width: 6px;
   height: 6px;
+  flex: none;
   border-radius: 50%;
-  background: rgb(86 95 76 / 35%);
+  margin-block-start: 5px;
+  background: rgb(177 144 79 / 45%);
   content: "";
 }
 
 @media (max-width: 61.9375rem) {
   .programSection {
     min-height: 0;
+  }
+
+  .quote p {
+    color: var(--color-navy-800);
+  }
+
+  .currentList.currentList li {
+    color: var(--color-navy-800);
+  }
+}
+
+@media (max-width: 29.9375rem) {
+  .currentList.currentList li {
+    align-items: center;
   }
 }

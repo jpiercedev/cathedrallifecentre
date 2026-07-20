@@ -32,7 +32,7 @@ export default function ClassesPage() {
         eyebrow={hero.eyebrow}
         heroClassName={coachingStyles.hero}
         image={hero.image}
-        imagePosition="50% 50%"
+        imagePosition="50% 40%"
         innerClassName={coachingStyles.heroInner}
         overlayClassName={coachingStyles.heroOverlay}
         scrollCueClassName={coachingStyles.scrollCue}
@@ -47,8 +47,8 @@ export default function ClassesPage() {
       <section
         aria-labelledby="classes-program-title"
         className={`${coachingStyles.programSection} ${styles.programSection}`}
-        id="clc-content"
       >
+        <span aria-hidden="true" className={coachingStyles.contentAnchor} id="clc-content" />
         <Container className={`${coachingStyles.sourceContainer} ${coachingStyles.programGrid}`}>
           <div className={coachingStyles.programCopy}>
             <EyebrowLabel className={coachingStyles.sectionEyebrow}>
