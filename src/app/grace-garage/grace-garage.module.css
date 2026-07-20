@@ -16,6 +16,11 @@
   );
 }
 
+.heroFade {
+  height: 110px;
+  background: linear-gradient(0deg, #edeae6, transparent);
+}
+
 .heroInner.heroInner {
   width: min(100% - 196px, 1152px);
   max-width: none;
@@ -23,12 +28,16 @@
 }
 
 .heroInner h1 {
-  margin-block: 19px 20px;
+  margin: 20px 0;
   font-size: 60.8px;
   font-weight: 700;
   letter-spacing: -0.608px;
   line-height: 66.88px;
-  text-shadow: 0 2px 20px rgb(0 0 0 / 25%);
+  text-shadow: 0 2px 20px rgb(0 0 0 / 35%);
+}
+
+.heroInner > nav + div {
+  margin-block-start: 32px;
 }
 
 .heroInner h1 + span {
@@ -55,9 +64,17 @@
 }
 
 .overviewSection {
+  position: relative;
   min-height: 785.25px;
   padding-block: 88px;
   background: var(--color-linen-100);
+}
+
+.contentAnchor {
+  position: absolute;
+  inset: 87px auto auto 0;
+  width: 1px;
+  height: 1px;
 }
 
 .overviewGrid,
@@ -191,11 +208,11 @@
 
 .impactEyebrow {
   margin: 0 0 16px;
-  color: #f5cbb8;
+  color: var(--color-terracotta-500);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 2.42px;
-  line-height: 16.5px;
+  line-height: 18px;
   text-transform: uppercase;
 }
 
@@ -213,6 +230,7 @@
 .impactDonation {
   width: 720px;
   max-width: calc(100% - 352px);
+  padding-block-end: 4.75px;
   margin: 0 auto 32px;
 }
 
@@ -236,25 +254,47 @@
 .donateButton,
 .applyButton,
 .secondaryAction {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
   color: var(--color-white);
   font-weight: 700;
   text-decoration: none;
   text-transform: uppercase;
 }
 
+.donateButtonWrap {
+  width: fit-content;
+  margin-inline: auto;
+}
+
+.donateButton,
+.applyButton {
+  box-sizing: border-box;
+  display: block;
+  align-self: center;
+  width: auto;
+  height: auto;
+  padding: 12px 32px;
+  border: 3px solid rgb(255 255 255 / 25%);
+  border-radius: 30px;
+  outline-color: rgb(255 255 255);
+  color: rgb(255 255 255);
+  background: rgb(223 123 79);
+  box-shadow:
+    0 0 0 0 rgb(0 0 0 / 0%),
+    0 0 0 0 rgb(0 0 0 / 0%),
+    0 4px 6px -1px rgb(0 0 0 / 10%),
+    0 2px 4px -2px rgb(0 0 0 / 10%);
+  font-family: Montserrat, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.54px;
+  line-height: 1.5;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: none !important;
+}
+
 .donateButton {
-  min-width: 194.46875px;
-  min-height: 51.25px;
-  padding: 14.4px 28.8px;
-  background: var(--color-terracotta-500);
-  box-shadow: 0 8px 22px rgb(0 0 0 / 15%);
-  font-size: 12.48px;
-  letter-spacing: 2px;
-  line-height: 22.464px;
+  margin: 0;
 }
 
 .donateButton:hover,
@@ -341,7 +381,7 @@
   align-self: start;
   margin-block-start: 64.046875px;
   border-radius: 24px;
-  box-shadow: 0 12px 32px rgb(45 50 39 / 12%);
+  box-shadow: none;
 }
 
 .volunteerOverlay {
@@ -404,23 +444,25 @@
   margin-block-start: 60px;
 }
 
-.applyButton,
 .secondaryAction {
   min-height: 47.015625px;
-  padding: 14.4px 23.2px;
-  font-size: 12.16px;
-  letter-spacing: 1.7px;
-  line-height: 18.24px;
 }
 
 .applyButton {
-  min-width: 176.34375px;
-  background: var(--color-terracotta-500);
+  margin: 0;
 }
 
 .secondaryAction {
+  display: inline-flex;
   min-width: 164.953125px;
+  align-items: center;
+  justify-content: center;
+  padding: 14.4px 23.2px;
+  border-radius: 999px;
   background: var(--color-olive-700);
+  font-size: 12.16px;
+  letter-spacing: 1.7px;
+  line-height: 18.24px;
 }
 
 .secondaryAction:hover,
@@ -516,16 +558,45 @@
   width: 100%;
 }
 
+.contactForm button {
+  margin-block-start: 22px;
+}
+
 @media (max-width: 61.9375rem) {
   .heroInner.heroInner,
+  .sourceContainer.sourceContainer,
+  .impactInner.impactInner {
+    padding-inline: 0;
+  }
+
+  .heroInner.heroInner,
+  .impactInner.impactInner {
+    width: calc(100% - 48px);
+  }
+
   .sourceContainer.sourceContainer {
     width: calc(100% - 64px);
-    padding-inline: 0;
   }
 
   .heroInner h1 {
     font-size: 3rem;
     line-height: 1.1;
+  }
+
+  .overviewCopy h2,
+  .volunteerCopy h2,
+  .contactCopy h2 {
+    color: var(--color-navy-800);
+  }
+
+  .overviewCopy h2,
+  .volunteerCopy h2 {
+    font-size: 34.685px;
+    line-height: 43.35625px;
+  }
+
+  .contactDetail > span {
+    background: var(--color-navy-800);
   }
 
   .overviewGrid,
@@ -537,12 +608,12 @@
   .overviewSection,
   .volunteerSection {
     min-height: 0;
-    padding-block: 72px;
+    padding-block: 88px;
   }
 
   .overviewGrid,
   .volunteerGrid {
-    gap: 48px;
+    gap: 40px;
   }
 
   .impactInner h2,
@@ -552,7 +623,8 @@
   }
 
   .volunteerImage {
-    width: min(100%, 504px);
+    width: 100%;
+    height: 500px;
     margin-block-start: 0;
   }
 
@@ -561,15 +633,15 @@
   }
 
   .contactInner {
-    width: min(100%, 1150px);
+    width: calc(100% - 48px);
     gap: 32px;
-    margin-inline: auto;
+    margin-inline: 24px;
   }
 }
 
 @media (max-width: 47.9375rem) {
   .hero {
-    min-height: 560px;
+    min-height: 496px;
   }
 
   .heroInner.heroInner,
@@ -583,13 +655,18 @@
 
   .overviewSection,
   .volunteerSection {
-    padding-block: 64px;
+    padding-block: 88px;
+  }
+
+  .overviewGrid,
+  .volunteerGrid {
+    gap: 32px;
   }
 
   .overviewCopy h2,
   .volunteerCopy h2 {
-    font-size: 2.25rem;
-    line-height: 1.25;
+    font-size: 1.8rem;
+    line-height: 36px;
   }
 
   .gallery {
@@ -615,16 +692,16 @@
   }
 
   .videoBorder {
-    width: 100%;
+    width: 60%;
   }
 
   .volunteerImage {
-    height: 420px;
+    height: 500px;
   }
 
   .volunteerActions {
     flex-wrap: wrap;
-    margin-block-start: 40px;
+    margin-block-start: 60px;
   }
 
   .contactSection {
@@ -633,14 +710,28 @@
   }
 
   .contactInner {
+    width: 100%;
     gap: 48px;
+    margin-inline: 0;
+  }
+
+  .contactCopy h2 {
+    font-size: 2rem;
+    line-height: 40px;
   }
 }
 
 @media (max-width: 29.9375rem) {
-  .heroInner.heroInner,
+  .heroInner.heroInner {
+    width: calc(100% - 48px);
+  }
+
   .sourceContainer.sourceContainer {
     width: calc(100% - 40px);
+  }
+
+  .impactInner.impactInner {
+    width: calc(100% - 48px);
   }
 
   .heroInner h1 {
@@ -648,42 +739,58 @@
   }
 
   .gallery {
-    grid-template-columns: 1fr;
-    grid-template-rows: 230px 150px 150px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: 300px 180px;
   }
 
   .galleryMain {
-    grid-column: auto;
+    grid-column: 1 / -1;
+  }
+
+  .overviewGrid,
+  .volunteerGrid {
+    gap: 28px;
+  }
+
+  .overviewSection {
+    padding-block-end: 88.828125px;
   }
 
   .impactInner h2 {
-    font-size: 2.1rem;
+    font-size: 1.8rem;
+    letter-spacing: normal;
+    line-height: 34.56px;
+  }
+
+  .impactSection {
+    padding-block: 64px;
   }
 
   .impactDescriptionSpacer {
-    height: 92px;
-  }
-
-  .donateButton,
-  .applyButton,
-  .secondaryAction {
-    width: 100%;
-  }
-
-  .volunteerImage {
-    height: 340px;
+    height: 151.171875px;
   }
 
   .volunteerActions {
     display: grid;
+    justify-items: start;
+  }
+
+  .secondaryAction {
+    width: 176.34375px;
   }
 
   .contactSection {
-    padding: 48px 20px;
+    padding: 80px 0;
+  }
+
+  .contactInner {
+    width: 100%;
+    padding-inline: 24px;
+    margin-inline: 0;
   }
 
   .contactCopy h2 {
-    font-size: 2rem;
-    line-height: 1.25;
+    font-size: 1.75rem;
+    line-height: 35px;
   }
 }
