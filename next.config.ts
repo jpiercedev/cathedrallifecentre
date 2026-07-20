@@ -7,7 +7,6 @@ const legacyFallbackRoutes = [
   "/classes",
   "/coaching",
   "/contact",
-  "/donate",
   "/foster-care",
   "/grace-garage",
   "/groups",
