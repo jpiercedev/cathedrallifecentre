@@ -30,6 +30,7 @@ export default function AdoptionPage() {
           { label: "Adoption" },
         ]}
         eyebrow={hero.eyebrow}
+        fadeClassName={styles.heroFade}
         heroClassName={styles.hero}
         image={hero.image}
         imagePosition="50% 40%"
@@ -47,8 +48,8 @@ export default function AdoptionPage() {
       <section
         aria-labelledby="adoption-overview-title"
         className={styles.overviewSection}
-        id="clc-content"
       >
+        <span aria-hidden="true" className={styles.contentAnchor} id="clc-content" />
         <Container className={`${styles.sourceContainer} ${styles.overviewGrid}`}>
           <div className={styles.overviewCopy}>
             <EyebrowLabel className={styles.sectionEyebrow}>
@@ -74,8 +75,8 @@ export default function AdoptionPage() {
                   quality={85}
                   sizes={
                     index === 0
-                      ? "(max-width: 991px) calc(100vw - 48px), 504px"
-                      : "(max-width: 767px) calc(50vw - 32px), 244px"
+                      ? "(max-width: 479px) calc(100vw - 40px), (max-width: 767px) calc(100vw - 48px), (max-width: 991px) calc(100vw - 64px), 504px"
+                      : "(max-width: 479px) calc(50vw - 28px), (max-width: 767px) calc(50vw - 32px), (max-width: 991px) calc(50vw - 40px), 244px"
                   }
                   src={image.src}
                 />
@@ -95,7 +96,7 @@ export default function AdoptionPage() {
               alt={resources.imageAlt}
               fill
               quality={85}
-              sizes="(max-width: 991px) calc(100vw - 48px), 504px"
+              sizes="(max-width: 479px) calc(100vw - 40px), (max-width: 767px) calc(100vw - 48px), (max-width: 991px) calc(100vw - 64px), 504px"
               src={resources.image}
             />
             <div className={styles.imageCaption}>
@@ -132,14 +133,23 @@ export default function AdoptionPage() {
               ))}
             </div>
 
-            <ButtonLink className={styles.primaryButton} href={resources.action.href}>
-              {resources.action.label}
-            </ButtonLink>
+            <div className={styles.primaryButtonWrap}>
+              <ButtonLink
+                className={styles.primaryButton}
+                href={resources.action.href}
+              >
+                {resources.action.label}
+              </ButtonLink>
+            </div>
           </div>
         </Container>
       </section>
 
-      <section aria-labelledby="adoption-contact-title" className={styles.contactSection}>
+      <section
+        aria-labelledby="adoption-contact-title"
+        className={styles.contactSection}
+        id="contact"
+      >
         <div className={styles.contactInner}>
           <div className={styles.contactCopy}>
             <EyebrowLabel className={`${styles.sectionEyebrow} ${styles.contactEyebrow}`}>

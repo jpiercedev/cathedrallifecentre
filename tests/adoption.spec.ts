@@ -5,6 +5,10 @@ import { unexpectedAccessibilityViolations } from "./accessibility";
 const webflowFormEndpoint =
   "https://webflow.com/api/v1/form/663792c3759f35a04eea8483";
 
+function expectNear(actual: number, expected: number, tolerance = 1) {
+  expect(Math.abs(actual - expected)).toBeLessThanOrEqual(tolerance);
+}
+
 test("Adoption reproduces the verified metadata, copy, resources, and destinations", async ({
   page,
 }) => {
@@ -165,13 +169,70 @@ test("Adoption responds at desktop, tablet, and mobile widths", async ({ page })
   expect(tabletImage!.y).toBeGreaterThan(tabletHeading!.y + tabletHeading!.height);
 
   await page.setViewportSize({ width: 390, height: 844 });
+  const hero = page.locator("main > section").first();
+  const heroHeading = page.getByRole("heading", { level: 1 });
+  const gallery = page.getByLabel("Adoption family gallery");
+  const galleryMain = overviewImage.locator("..");
+  const gallerySmall = page
+    .getByAltText("Bedroom suite with baby crib")
+    .locator("..");
+  const primaryAction = page.getByRole("link", { name: "Find Out More" });
+  const primaryActionWrap = primaryAction.locator("..");
   const mobileResourcesImage = await resourcesImage.boundingBox();
   const mobileResourcesHeading = await resourcesHeading.boundingBox();
+  const mobileHero = await hero.boundingBox();
+  const mobileHeroHeading = await heroHeading.boundingBox();
+  const mobileGallery = await gallery.boundingBox();
+  const mobileGalleryMain = await galleryMain.boundingBox();
+  const mobileGallerySmall = await gallerySmall.boundingBox();
+  const mobilePrimaryAction = await primaryAction.boundingBox();
+  const mobilePrimaryActionWrap = await primaryActionWrap.boundingBox();
   expect(mobileResourcesImage).not.toBeNull();
   expect(mobileResourcesHeading).not.toBeNull();
+  expect(mobileHero).not.toBeNull();
+  expect(mobileHeroHeading).not.toBeNull();
+  expect(mobileGallery).not.toBeNull();
+  expect(mobileGalleryMain).not.toBeNull();
+  expect(mobileGallerySmall).not.toBeNull();
+  expect(mobilePrimaryAction).not.toBeNull();
+  expect(mobilePrimaryActionWrap).not.toBeNull();
   expect(mobileResourcesHeading!.y).toBeGreaterThan(
     mobileResourcesImage!.y + mobileResourcesImage!.height,
   );
+  expectNear(mobileHero!.height, 496);
+  expectNear(mobileHeroHeading!.x, 24);
+  expectNear(mobileGallery!.height, 496);
+  expectNear(mobileGalleryMain!.height, 300);
+  expectNear(mobileGallerySmall!.height, 180);
+  expectNear(mobileResourcesImage!.height, 520);
+  expectNear(mobilePrimaryAction!.width, mobilePrimaryActionWrap!.width);
+
+  const mobileTypography = await page.evaluate(() => {
+    const read = (element: Element | null) => {
+      if (!element) throw new Error("Expected typography target was not found");
+      const style = getComputedStyle(element);
+      return {
+        color: style.color,
+        fontSize: Number.parseFloat(style.fontSize),
+        lineHeight: Number.parseFloat(style.lineHeight),
+      };
+    };
+    return {
+      contact: read(document.querySelector("#adoption-contact-title")),
+      hero: read(document.querySelector("#adoption-title")),
+      overview: read(document.querySelector("#adoption-overview-title")),
+      resources: read(document.querySelector("#adoption-resources-title")),
+    };
+  });
+  expectNear(mobileTypography.hero.fontSize, 35.2, 0.1);
+  expectNear(mobileTypography.hero.lineHeight, 38.72, 0.2);
+  expectNear(mobileTypography.overview.fontSize, 28.8, 0.1);
+  expectNear(mobileTypography.overview.lineHeight, 36, 0.2);
+  expect(mobileTypography.overview.color).toBe("rgb(28, 44, 91)");
+  expectNear(mobileTypography.resources.fontSize, 28.8, 0.1);
+  expectNear(mobileTypography.resources.lineHeight, 36, 0.2);
+  expectNear(mobileTypography.contact.fontSize, 28, 0.1);
+  expectNear(mobileTypography.contact.lineHeight, 35, 0.2);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(390);
 });
 
