@@ -1,0 +1,388 @@
+.main {
+  background: var(--color-cream-100);
+}
+
+.pageInner {
+  width: min(100%, 940px);
+  min-height: 1205.921875px;
+  padding: 88px 32px 96px;
+  margin-inline: auto;
+  background: var(--color-linen-100);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 324.796875px minmax(0, 487.203125px);
+  gap: 40px 64px;
+  align-items: start;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.introCard {
+  position: sticky;
+  inset-block-start: 32px;
+  min-height: 640.03125px;
+  padding: 42px 38px;
+  border-block-start: 5px solid var(--color-terracotta-500);
+  border-radius: 18px;
+  color: var(--color-white);
+  background: var(--color-olive-700);
+  box-shadow: 0 18px 48px rgb(45 50 39 / 18%);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--color-white);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  line-height: 18px;
+  text-transform: uppercase;
+}
+
+.introCard h2,
+.form h2 {
+  font-family: var(--font-display-source);
+  font-size: 54.52px;
+  font-weight: 400;
+  letter-spacing: -1.64px;
+  line-height: 54.52px;
+}
+
+.introCard h2 {
+  margin: 0 0 25px;
+  color: var(--color-white);
+}
+
+.description {
+  margin: 0;
+  color: rgb(255 255 255 / 90%);
+  font-size: 16px;
+  line-height: 27.6px;
+}
+
+.introCard ul {
+  display: grid;
+  gap: 13px;
+  padding: 0;
+  margin: 28px 0 0;
+  list-style: none;
+}
+
+.introCard li {
+  position: relative;
+  padding-inline-start: 28px;
+  color: rgb(255 255 255 / 90%);
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.introCard li::before {
+  position: absolute;
+  inset-block-start: 8px;
+  inset-inline-start: 7px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-terracotta-500);
+  content: "";
+}
+
+.formCard {
+  min-height: 1006.921875px;
+  padding: 46px;
+  border-block-start: 5px solid var(--color-olive-700);
+  border-radius: 18px;
+  background: var(--color-white);
+  box-shadow: 0 18px 48px rgb(28 44 91 / 10%);
+}
+
+.form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 18px 20px;
+}
+
+.form h2 {
+  grid-column: 1 / -1;
+  margin: 13px 0 2px;
+  color: var(--color-navy-800);
+}
+
+.form > label {
+  align-self: center;
+  margin: 0;
+  color: var(--color-olive-700);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+.form input,
+.form textarea {
+  min-width: 0;
+  border: 1px solid rgb(86 95 76 / 25%);
+  border-radius: 10px;
+  color: var(--color-navy-800);
+  background: var(--color-cream-100);
+  font-family: Montserrat, sans-serif;
+  font-size: 16px;
+}
+
+.form input:not([type="checkbox"]) {
+  height: 52px;
+  padding: 12px 14px;
+}
+
+.form input::placeholder {
+  color: rgb(86 95 76 / 48%);
+}
+
+.nameLabel,
+.emailLabel {
+  grid-column: 1;
+}
+
+.nameInput,
+.emailInput {
+  grid-column: 2;
+}
+
+.nameLabel,
+.nameInput {
+  grid-row: 2;
+}
+
+.emailLabel,
+.emailInput {
+  grid-row: 3;
+}
+
+.messageLabel {
+  grid-column: 1 / -1;
+  margin-block-start: 1px !important;
+}
+
+.messageInput {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 160px;
+  padding: 13px 14px;
+  resize: vertical;
+}
+
+.phoneLabel {
+  grid-column: 1;
+}
+
+.phoneInput {
+  grid-column: 2;
+}
+
+.interests {
+  grid-column: 1 / -1;
+  min-width: 0;
+  min-height: 294.8125px;
+  padding: 18px 20px 14px;
+  border: 1px solid rgb(149 2 0 / 14%);
+  border-radius: 12px;
+  margin: 3px 0 0;
+  color: var(--color-olive-700);
+  background: #fffaf3;
+}
+
+.interests legend {
+  padding: 0;
+  color: var(--color-olive-700);
+  font-family: Montserrat, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+.interests legend span {
+  color: var(--color-olive-700);
+  font-weight: 400;
+}
+
+.interests label {
+  display: grid;
+  min-height: 37px;
+  grid-template-columns: 13px 59px 1fr;
+  gap: 8px;
+  align-items: start;
+  color: var(--color-olive-700);
+  font-size: 15.2px;
+  font-weight: 500;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+.interests label:first-of-type {
+  min-height: 54px;
+  padding-block-start: 8px;
+}
+
+.interests input {
+  width: 13px;
+  height: 13px;
+  margin: 4px 0 0;
+  accent-color: var(--color-olive-700);
+}
+
+.interestPrefix {
+  white-space: nowrap;
+}
+
+.form button {
+  grid-column: 1 / -1;
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 26px;
+  border: 0;
+  border-radius: 999px;
+  color: var(--color-white);
+  background: var(--color-burgundy-700);
+  font-family: Montserrat, sans-serif;
+  font-size: 13.6px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  line-height: 16.32px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.form button:disabled {
+  cursor: wait;
+  opacity: 0.75;
+}
+
+.formError {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--color-burgundy-700);
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.formSuccess {
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.formSuccess p {
+  margin: 0;
+  color: var(--color-olive-700);
+  font-family: var(--font-display-source);
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+@media (max-width: 61.9375rem) {
+  .main {
+    padding-block-start: 123px;
+  }
+
+  .pageInner {
+    width: 100%;
+    min-height: 0;
+    padding: 64px 32px 72px;
+  }
+
+  .layout {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: 40px;
+  }
+
+  .introCard {
+    position: static;
+    padding-inline: 32px;
+  }
+
+  .formCard {
+    padding-inline: 36px;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .pageInner {
+    padding: 48px 24px 56px;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .introCard,
+  .formCard {
+    min-height: 0;
+  }
+
+  .formCard {
+    padding: 40px 32px;
+  }
+}
+
+@media (max-width: 29.9375rem) {
+  .pageInner {
+    padding-inline: 20px;
+  }
+
+  .introCard,
+  .formCard {
+    padding-inline: 24px;
+  }
+
+  .introCard h2,
+  .form h2 {
+    font-size: 42px;
+    line-height: 46px;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+  }
+
+  .form h2,
+  .form > label,
+  .form > input,
+  .form > textarea,
+  .interests,
+  .form button,
+  .formError {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .interests {
+    padding-inline: 16px;
+  }
+
+  .interests label {
+    grid-template-columns: 13px 1fr;
+  }
+
+  .interestPrefix {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+}

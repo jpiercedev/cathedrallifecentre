@@ -1,10 +1,5 @@
 import type { NextConfig } from "next";
 
-const legacySiteUrl = "https://cathedral-life-center.webflow.io";
-const legacyFallbackRoutes = [
-  "/contact",
-] as const;
-
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["127.0.0.1"],
   images: {
@@ -17,11 +12,6 @@ const nextConfig: NextConfig = {
         destination: "/",
         permanent: true,
       },
-      ...legacyFallbackRoutes.map((route) => ({
-        source: route,
-        destination: `${legacySiteUrl}${route}`,
-        permanent: false,
-      })),
     ];
   },
 };
