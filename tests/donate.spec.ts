@@ -93,7 +93,9 @@ test("Donate is a direct local route with the verified metadata and exact copy",
   await expect(page.getByText("Ways to Give", { exact: true })).toBeVisible();
   for (const method of givingMethods) {
     await expect(page.getByText(method.number, { exact: true })).toBeVisible();
-    await expect(page.getByRole("heading", { name: method.title })).toBeVisible();
+    await expect(
+      page.getByRole("heading", { exact: true, name: method.title }),
+    ).toBeVisible();
     await expect(page.getByText(method.description, { exact: true })).toBeVisible();
   }
 

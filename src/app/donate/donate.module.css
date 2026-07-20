@@ -171,7 +171,7 @@
 
 .giveEyebrow {
   margin-block-end: 24px;
-  color: var(--color-action-strong);
+  color: #ac4d2e;
 }
 
 .giveCopy h2 {
@@ -257,7 +257,7 @@
 
 .waysEyebrow {
   margin: 0 0 24px;
-  color: var(--color-action-strong);
+  color: #ac4d2e;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 2.2px;
@@ -349,7 +349,7 @@
 }
 
 .terracottaOption .optionTitle {
-  color: var(--color-action-strong);
+  color: #ac4d2e;
 }
 
 .navyOption .optionTitle {
