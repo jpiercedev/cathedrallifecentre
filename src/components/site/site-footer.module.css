@@ -1,19 +1,18 @@
 .footer {
-  min-height: 495px;
   color: var(--color-cream-200);
   background: var(--color-olive-700);
 }
 
 .inner {
   display: grid;
-  width: min(100%, var(--container-default));
+  width: 100%;
+  max-width: 1152px;
   height: auto;
-  min-height: 390px;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 40px;
   align-items: start;
   margin-inline: auto;
-  padding: 56px 40px 16px;
+  padding: 56px 40px;
 }
 
 .brand {
@@ -23,11 +22,16 @@
 }
 
 .brand p {
-  max-width: 270px;
-  margin-block: 20px;
-  color: var(--color-cream-200);
+  margin: 0 0 20px;
+  color: rgb(242 239 232 / 60%);
   font-size: 14px;
   line-height: 1.625;
+}
+
+.brand > a:first-child {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
 }
 
 .logo {
@@ -79,21 +83,33 @@
 
 .linkGroup h2,
 .contact h2 {
-  margin-block: 0 24px;
+  margin: 0 0 20px;
   color: var(--color-sand-300);
   font-family: var(--font-body);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.18em;
+  line-height: 1.5;
   text-transform: uppercase;
 }
 
 .linkGroup ul {
-  display: grid;
-  gap: 10px;
+  display: block;
   padding: 0;
   margin: 0;
   list-style: none;
+}
+
+.linkGroup li {
+  min-height: 24px;
+  padding-inline-start: 8px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.linkGroup li + li {
+  margin-block-start: 10px;
 }
 
 .linkGroup a,
@@ -102,8 +118,14 @@
   color: var(--color-cream-200);
   font-size: 14px;
   font-style: normal;
-  line-height: 1.7;
+  line-height: 20px;
   text-decoration: none;
+}
+
+.linkGroup a,
+.contact a {
+  color: rgb(242 239 232 / 60%);
+  line-height: 20px;
 }
 
 .linkGroup a:hover,
@@ -114,34 +136,67 @@
 }
 
 .contact {
-  display: grid;
-  align-content: start;
+  display: block;
 }
 
 .contact address {
+  color: rgb(242 239 232 / 60%);
+  line-height: 1.625;
   margin-block-end: 8px;
 }
 
+.contact > a {
+  display: block;
+}
+
+.contact > a:first-of-type {
+  margin-block-end: 8px;
+}
+
+.contact > a:last-of-type {
+  display: inline;
+}
+
 .legal {
-  height: 105px;
-  padding: 26px 24px;
   border-block-start: 1px solid rgb(242 239 232 / 12%);
+}
+
+.legalInner {
+  width: 100%;
+  max-width: 1152px;
+  margin-inline: auto;
+  padding: 20px 40px;
   color: var(--color-sand-300);
   font-size: 9px;
+  line-height: 16px;
   letter-spacing: 0.06em;
   text-align: center;
   text-transform: uppercase;
 }
 
-.legal p {
-  margin-block-end: 8px;
+.legalInner p {
+  margin: 0;
+}
+
+.ministryNote {
+  margin-block-start: 8px !important;
+  color: rgb(242 239 232 / 45%);
+  font-size: 0.78rem;
+  letter-spacing: normal;
+  line-height: 1.5;
+  text-transform: none;
 }
 
 @media (max-width: 61.9375rem) {
   .inner {
-    width: min(100%, var(--container-default));
-    min-height: 429px;
-    gap: 39px;
+    padding: 56px 24px;
+  }
+
+  .brand {
+    display: block;
+  }
+
+  .legalInner {
     padding-inline: 24px;
   }
 }
@@ -150,29 +205,15 @@
   .inner {
     width: 100%;
     height: auto;
-    min-height: 390px;
     grid-template-columns: 1fr;
     gap: 40px;
-    padding: 56px 24px 40px;
-  }
-
-  .brand p {
-    max-width: 340px;
-  }
-
-  .linkGroup h2,
-  .contact h2 {
-    margin-block-end: 20px;
-  }
-
-  .legal {
-    height: auto;
-    min-height: 105px;
+    padding: 56px 24px;
   }
 }
 
 @media (max-width: 29.9375rem) {
   .brand {
+    display: flex;
     align-items: center;
     text-align: center;
   }

@@ -75,14 +75,16 @@ export function SiteFooter() {
         </div>
       </div>
       <div className={styles.legal}>
-        <p>
-          Cathedral Life Centre • 24854 Cathedral Lakes Pkwy, Spring, TX 77386
-          • (832) 381-2306 • CathedralLifeCentre.com
-        </p>
-        <p>
-          The Cathedral Life Centre is a ministry of{" "}
-          <a href="https://gracewoodlands.com/">Grace Church</a>.
-        </p>
+        <div className={styles.legalInner}>
+          <p>
+            Cathedral Life Centre • 24854 Cathedral Lakes Pkwy, Spring, TX
+            77386 • (832) 381-2306 • CathedralLifeCentre.com
+          </p>
+          <p className={styles.ministryNote}>
+            The Cathedral Life Centre is a ministry of{" "}
+            <a href="https://gracewoodlands.com/">Grace Church</a>.
+          </p>
+        </div>
       </div>
     </footer>
   );
