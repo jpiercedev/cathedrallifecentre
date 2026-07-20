@@ -140,7 +140,11 @@ export function ContactForm({
           type="email"
         />
         <p className={styles.messageLabel}>Message</p>
-        <button disabled={!isLive || status === "submitting"} type="submit">
+        <button
+          className={styles.primaryButton}
+          disabled={!isLive || status === "submitting"}
+          type="submit"
+        >
           {status === "submitting" ? "Sending…" : submitLabel}
         </button>
       </fieldset>

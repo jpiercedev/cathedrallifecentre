@@ -373,7 +373,10 @@ test("default and disclosed states have no unexpected accessibility violations",
 test("production discovery routes expose the homepage", async ({ page }) => {
   const robots = await page.request.get("/robots.txt");
   expect(robots.ok()).toBe(true);
-  expect(await robots.text()).toContain("Allow: /");
+  const robotsText = await robots.text();
+  expect(robotsText).toContain(
+    process.env.VERCEL_ENV === "preview" ? "Disallow: /" : "Allow: /",
+  );
 
   const sitemap = await page.request.get("/sitemap.xml");
   expect(sitemap.ok()).toBe(true);

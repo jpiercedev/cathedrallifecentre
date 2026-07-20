@@ -161,6 +161,12 @@ test("Residency Programs layout responds at desktop, tablet, and mobile widths",
 }) => {
   await page.setViewportSize({ width: 1363, height: 936 });
   await page.goto("/residency-programs");
+  const hero = page.locator("main > section").filter({
+    has: page.getByRole("heading", { level: 1, name: "A Safe Haven" }),
+  });
+  const desktopHero = await hero.boundingBox();
+  expect(desktopHero).not.toBeNull();
+  expect(Math.abs(desktopHero!.height - 620)).toBeLessThan(2);
   const cards = page.locator("main article");
   const cardList = await cards.all();
   expect(cardList).toHaveLength(6);
@@ -185,6 +191,9 @@ test("Residency Programs layout responds at desktop, tablet, and mobile widths",
   expect(desktopHeading!.x).toBeLessThan(desktopForm!.x);
 
   await page.setViewportSize({ width: 768, height: 1024 });
+  const tabletHero = await hero.boundingBox();
+  expect(tabletHero).not.toBeNull();
+  expect(Math.abs(tabletHero!.height - 480)).toBeLessThan(2);
   const tabletFirst = await cardList[0].boundingBox();
   const tabletSecond = await cardList[1].boundingBox();
   const tabletThird = await cardList[2].boundingBox();
@@ -200,6 +209,9 @@ test("Residency Programs layout responds at desktop, tablet, and mobile widths",
   expect(tabletForm!.y).toBeGreaterThan(tabletHeading!.y + tabletHeading!.height);
 
   await page.setViewportSize({ width: 390, height: 844 });
+  const mobileHero = await hero.boundingBox();
+  expect(mobileHero).not.toBeNull();
+  expect(Math.abs(mobileHero!.height - 480)).toBeLessThan(2);
   const mobileFirst = await cardList[0].boundingBox();
   const mobileSecond = await cardList[1].boundingBox();
   expect(mobileFirst).not.toBeNull();

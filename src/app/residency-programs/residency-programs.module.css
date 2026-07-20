@@ -272,8 +272,12 @@
 }
 
 @media (max-width: 61.9375rem) {
+  .hero {
+    min-height: 480px;
+  }
+
   .heroInner {
-    width: calc(100% - 48px);
+    width: calc(100% - 64px);
   }
 
   .heroInner h1 {
@@ -296,11 +300,16 @@
   .contactInner {
     width: min(100%, 1150px);
     grid-template-columns: 1fr;
+    gap: 32px;
     margin-inline: auto;
   }
 }
 
 @media (max-width: 47.9375rem) {
+  .heroInner {
+    width: calc(100% - 48px);
+  }
+
   .heroInner h1 {
     font-size: 2.625rem;
   }
@@ -323,6 +332,10 @@
 
   .contact {
     padding: 56px 24px;
+  }
+
+  .contactInner {
+    gap: 48px;
   }
 }
 

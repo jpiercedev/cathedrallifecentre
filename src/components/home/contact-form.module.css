@@ -77,6 +77,10 @@
   cursor: not-allowed;
 }
 
+.primaryButton {
+  box-sizing: border-box;
+}
+
 .form.compact {
   min-height: 326.5px;
   padding: 40px;
