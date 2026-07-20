@@ -18,10 +18,14 @@ const ministries = navigation.primary.find(
   (item) => item.label === "Ministries",
 );
 
+const DRAWER_TRANSITION_MS = 280;
+
 export function SiteHeader() {
   const pathname = usePathname();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [drawerMounted, setDrawerMounted] = useState(false);
+  const [drawerClosing, setDrawerClosing] = useState(false);
   const [mobileMinistriesOpen, setMobileMinistriesOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -29,6 +33,7 @@ export function SiteHeader() {
   const dropdownButtonRef = useRef<HTMLButtonElement>(null);
   const dropdownMenuRef = useRef<HTMLDivElement>(null);
   const dropdownPinnedRef = useRef(false);
+  const drawerOpenFrameRef = useRef<number | null>(null);
 
   const isCurrent = (href?: string) => Boolean(href && pathname === href);
   const ministryIsCurrent = Boolean(
@@ -69,6 +74,7 @@ export function SiteHeader() {
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
+        setDrawerClosing(true);
         setDrawerOpen(false);
         setMobileMinistriesOpen(false);
         menuButtonRef.current?.focus();
@@ -109,13 +115,41 @@ export function SiteHeader() {
   useEffect(() => {
     const closeOnDesktop = (event: MediaQueryListEvent) => {
       if (!event.matches) return;
+      if (drawerOpenFrameRef.current !== null) {
+        cancelAnimationFrame(drawerOpenFrameRef.current);
+        drawerOpenFrameRef.current = null;
+      }
       setDrawerOpen(false);
+      setDrawerMounted(false);
+      setDrawerClosing(false);
       setMobileMinistriesOpen(false);
     };
     const query = window.matchMedia("(min-width: 62rem)");
     query.addEventListener("change", closeOnDesktop);
     return () => query.removeEventListener("change", closeOnDesktop);
   }, []);
+
+  useEffect(() => {
+    if (!drawerMounted || !drawerClosing) return;
+
+    const delay = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ? 0
+      : DRAWER_TRANSITION_MS;
+    const timeout = window.setTimeout(() => {
+      setDrawerMounted(false);
+      setDrawerClosing(false);
+    }, delay);
+    return () => window.clearTimeout(timeout);
+  }, [drawerMounted, drawerClosing]);
+
+  useEffect(
+    () => () => {
+      if (drawerOpenFrameRef.current !== null) {
+        cancelAnimationFrame(drawerOpenFrameRef.current);
+      }
+    },
+    [],
+  );
 
   useEffect(() => {
     if (!dropdownOpen) return;
@@ -136,7 +170,30 @@ export function SiteHeader() {
       document.removeEventListener("pointerdown", closeOnOutsidePointer);
   }, [dropdownOpen]);
 
+  const openDrawer = () => {
+    setDrawerClosing(false);
+    setDrawerMounted(true);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setDrawerOpen(true);
+      return;
+    }
+    if (drawerOpenFrameRef.current !== null) {
+      cancelAnimationFrame(drawerOpenFrameRef.current);
+    }
+    drawerOpenFrameRef.current = requestAnimationFrame(() => {
+      drawerOpenFrameRef.current = requestAnimationFrame(() => {
+        setDrawerOpen(true);
+        drawerOpenFrameRef.current = null;
+      });
+    });
+  };
+
   const closeDrawer = () => {
+    if (drawerOpenFrameRef.current !== null) {
+      cancelAnimationFrame(drawerOpenFrameRef.current);
+      drawerOpenFrameRef.current = null;
+    }
+    if (drawerMounted) setDrawerClosing(true);
     setDrawerOpen(false);
     setMobileMinistriesOpen(false);
   };
@@ -232,56 +289,57 @@ export function SiteHeader() {
                 Ministries
                 <ChevronDownIcon aria-hidden="true" />
               </button>
-              {dropdownOpen ? (
-                <div
-                  className={styles.dropdownMenu}
-                  id="desktop-ministries-menu"
-                  onKeyDown={(event) => {
-                    const links = Array.from(
-                      dropdownMenuRef.current?.querySelectorAll<HTMLAnchorElement>(
-                        "a[href]",
-                      ) ?? [],
-                    );
-                    const index = links.indexOf(
-                      document.activeElement as HTMLAnchorElement,
-                    );
-                    if (event.key === "Escape") {
-                      event.preventDefault();
+              <div
+                aria-hidden={!dropdownOpen}
+                className={styles.dropdownMenu}
+                data-state={dropdownOpen ? "open" : "closed"}
+                id="desktop-ministries-menu"
+                inert={dropdownOpen ? undefined : true}
+                onKeyDown={(event) => {
+                  const links = Array.from(
+                    dropdownMenuRef.current?.querySelectorAll<HTMLAnchorElement>(
+                      "a[href]",
+                    ) ?? [],
+                  );
+                  const index = links.indexOf(
+                    document.activeElement as HTMLAnchorElement,
+                  );
+                  if (event.key === "Escape") {
+                    event.preventDefault();
+                    dropdownPinnedRef.current = false;
+                    setDropdownOpen(false);
+                    dropdownButtonRef.current?.focus();
+                  } else if (event.key === "Home") {
+                    event.preventDefault();
+                    links[0]?.focus();
+                  } else if (event.key === "End") {
+                    event.preventDefault();
+                    links.at(-1)?.focus();
+                  } else if (event.key === "ArrowDown") {
+                    event.preventDefault();
+                    links[(index + 1 + links.length) % links.length]?.focus();
+                  } else if (event.key === "ArrowUp") {
+                    event.preventDefault();
+                    links[(index - 1 + links.length) % links.length]?.focus();
+                  }
+                }}
+                ref={dropdownMenuRef}
+              >
+                {ministries?.children?.map((item) => (
+                  <Link
+                    aria-current={isCurrent(item.href) ? "page" : undefined}
+                    href={item.href ?? "/"}
+                    key={item.label}
+                    onClick={() => {
                       dropdownPinnedRef.current = false;
                       setDropdownOpen(false);
-                      dropdownButtonRef.current?.focus();
-                    } else if (event.key === "Home") {
-                      event.preventDefault();
-                      links[0]?.focus();
-                    } else if (event.key === "End") {
-                      event.preventDefault();
-                      links.at(-1)?.focus();
-                    } else if (event.key === "ArrowDown") {
-                      event.preventDefault();
-                      links[(index + 1 + links.length) % links.length]?.focus();
-                    } else if (event.key === "ArrowUp") {
-                      event.preventDefault();
-                      links[(index - 1 + links.length) % links.length]?.focus();
-                    }
-                  }}
-                  ref={dropdownMenuRef}
-                >
-                  {ministries?.children?.map((item) => (
-                    <Link
-                      aria-current={isCurrent(item.href) ? "page" : undefined}
-                      href={item.href ?? "/"}
-                      key={item.label}
-                      onClick={() => {
-                        dropdownPinnedRef.current = false;
-                        setDropdownOpen(false);
-                      }}
-                      prefetch={false}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              ) : null}
+                    }}
+                    prefetch={false}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
             </div>
             <Link
               aria-current={isCurrent("/contact") ? "page" : undefined}
@@ -317,8 +375,8 @@ export function SiteHeader() {
               className={styles.menuButton}
               id="navigation-toggle"
               onClick={() => {
-                setDrawerOpen((open) => !open);
-                if (drawerOpen) setMobileMinistriesOpen(false);
+                if (drawerOpen || drawerMounted) closeDrawer();
+                else openDrawer();
               }}
               ref={menuButtonRef}
               type="button"
@@ -333,11 +391,25 @@ export function SiteHeader() {
         </div>
       </div>
 
-      {drawerOpen ? (
+      {drawerMounted ? (
         <nav
+          aria-hidden={!drawerOpen}
           aria-label="Mobile navigation"
           className={styles.drawer}
+          data-state={drawerOpen ? "open" : "closed"}
           id="mobile-navigation-drawer"
+          inert={drawerOpen ? undefined : true}
+          onTransitionEnd={(event) => {
+            if (
+              event.currentTarget === event.target &&
+              event.propertyName === "transform" &&
+              drawerClosing &&
+              !drawerOpen
+            ) {
+              setDrawerMounted(false);
+              setDrawerClosing(false);
+            }
+          }}
         >
           <Link
             aria-current={isCurrent("/") ? "page" : undefined}
@@ -350,6 +422,7 @@ export function SiteHeader() {
           <div className={styles.mobileMinistries}>
             <button
               aria-controls="mobile-ministries-menu"
+              aria-current={ministryIsCurrent ? "page" : undefined}
               aria-expanded={mobileMinistriesOpen}
               id="mobile-ministries-trigger"
               onClick={() => setMobileMinistriesOpen((open) => !open)}
@@ -358,24 +431,25 @@ export function SiteHeader() {
               Ministries
               <ChevronDownIcon aria-hidden="true" />
             </button>
-            {mobileMinistriesOpen ? (
-              <div
-                className={styles.mobileMinistriesMenu}
-                id="mobile-ministries-menu"
-              >
-                {ministries?.children?.map((item) => (
-                  <Link
-                    aria-current={isCurrent(item.href) ? "page" : undefined}
-                    href={item.href ?? "/"}
-                    key={item.label}
-                    onClick={closeDrawer}
-                    prefetch={false}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            ) : null}
+            <div
+              aria-hidden={!mobileMinistriesOpen}
+              className={styles.mobileMinistriesMenu}
+              data-state={mobileMinistriesOpen ? "open" : "closed"}
+              id="mobile-ministries-menu"
+              inert={mobileMinistriesOpen ? undefined : true}
+            >
+              {ministries?.children?.map((item) => (
+                <Link
+                  aria-current={isCurrent(item.href) ? "page" : undefined}
+                  href={item.href ?? "/"}
+                  key={item.label}
+                  onClick={closeDrawer}
+                  prefetch={false}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
           </div>
           <Link
             aria-current={isCurrent("/donate") ? "page" : undefined}

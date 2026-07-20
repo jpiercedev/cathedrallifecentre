@@ -109,15 +109,30 @@ test("desktop Ministries disclosure works with pointer and keyboard", async ({
 }) => {
   await page.goto("/");
   const trigger = page.getByRole("button", { name: "Ministries" });
+  const menu = page.locator("#desktop-ministries-menu");
+
+  await expect(menu).toHaveAttribute("data-state", "closed");
+  await expect(menu).toHaveAttribute("aria-hidden", "true");
+  await expect(menu).toHaveCSS("opacity", "0");
 
   await trigger.click();
   await expect(trigger).toHaveAttribute("aria-expanded", "true");
+  await expect(menu).toHaveAttribute("data-state", "open");
+  await expect(menu).toHaveCSS("opacity", "1");
   await expect(page.getByRole("link", { name: "Residency Programs" }).first()).toBeVisible();
 
   await trigger.click();
   await expect(trigger).toHaveAttribute("aria-expanded", "false");
+  await expect(menu).toHaveAttribute("data-state", "closed");
 
-  await trigger.focus();
+  await trigger.press("Tab");
+  await page.keyboard.press("Shift+Tab");
+  await expect(trigger).toBeFocused();
+  await expect(trigger).toHaveCSS("outline-style", "none");
+  await expect(trigger).toHaveCSS(
+    "box-shadow",
+    /rgb\(45, 50, 39\) 0px 0px 0px 5px/,
+  );
   await trigger.press("ArrowDown");
   await expect(trigger).toHaveAttribute("aria-expanded", "true");
   const residencyLink = page
@@ -143,6 +158,12 @@ test("desktop Ministries disclosure works with pointer and keyboard", async ({
       exact: true,
     }),
   ).toHaveAttribute("aria-current", "page");
+  await expect(
+    page.locator("nav[aria-label='Primary navigation']").getByRole("link", {
+      name: "Home",
+      exact: true,
+    }),
+  ).toHaveCSS("color", "rgb(181, 82, 49)");
 });
 
 test("mobile drawer and nested Ministries disclosure match the source behavior", async ({
@@ -153,7 +174,10 @@ test("mobile drawer and nested Ministries disclosure match the source behavior",
 
   const toggle = page.getByRole("button", { name: "Open navigation menu" });
   await toggle.click();
-  await expect(page.getByRole("navigation", { name: "Mobile navigation" })).toBeVisible();
+  const drawer = page.getByRole("navigation", { name: "Mobile navigation" });
+  await expect(drawer).toBeVisible();
+  await expect(drawer).toHaveAttribute("data-state", "open");
+  await expect(drawer).toHaveCSS("opacity", "1");
   await expect(page.getByRole("link", { name: "Partner With Us" }).first()).toBeVisible();
   await expect(page.locator("main")).toHaveAttribute("aria-hidden", "true");
   await expect(page.locator("footer")).toHaveAttribute("aria-hidden", "true");
@@ -165,9 +189,23 @@ test("mobile drawer and nested Ministries disclosure match the source behavior",
   ).toBe(true);
 
   const ministries = page.locator("#mobile-ministries-trigger");
+  const mobileMinistriesMenu = page.locator("#mobile-ministries-menu");
+  await expect(mobileMinistriesMenu).toHaveAttribute("data-state", "closed");
   await ministries.click();
   await expect(ministries).toHaveAttribute("aria-expanded", "true");
+  await expect(mobileMinistriesMenu).toHaveAttribute("data-state", "open");
+  await expect(mobileMinistriesMenu).toHaveCSS("opacity", "1");
   await expect(page.getByRole("link", { name: "The Market" }).first()).toBeVisible();
+
+  const currentLink = drawer.getByRole("link", { name: "Home", exact: true });
+  await expect(currentLink).toHaveCSS("color", "rgb(181, 82, 49)");
+  await page.keyboard.press("Shift+Tab");
+  await expect(currentLink).toBeFocused();
+  await expect(currentLink).toHaveCSS("outline-style", "none");
+  await expect(currentLink).toHaveCSS(
+    "box-shadow",
+    /rgb\(45, 50, 39\) 0px 0px 0px 5px/,
+  );
 
   await page.keyboard.press("Escape");
   await expect(page.getByRole("navigation", { name: "Mobile navigation" })).toHaveCount(0);
@@ -182,6 +220,25 @@ test("mobile drawer and nested Ministries disclosure match the source behavior",
       .locator("main")
       .evaluate((element) => (element as HTMLElement).inert),
   ).toBe(false);
+});
+
+test("mobile navigation remains operable with reduced motion", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+
+  await page.getByRole("button", { name: "Open navigation menu" }).click();
+  const drawer = page.getByRole("navigation", { name: "Mobile navigation" });
+  await expect(drawer).toBeVisible();
+  await expect(drawer).toHaveAttribute("data-state", "open");
+
+  const ministries = page.locator("#mobile-ministries-trigger");
+  await ministries.click();
+  await expect(ministries).toHaveAttribute("aria-expanded", "true");
+  await expect(page.locator("#mobile-ministries-menu")).toBeVisible();
+
+  await page.getByRole("button", { name: "Close navigation menu" }).click();
+  await expect(drawer).toHaveCount(0);
 });
 
 test("tablet drawer keeps Donate in the header and omits the mobile Partner row", async ({
