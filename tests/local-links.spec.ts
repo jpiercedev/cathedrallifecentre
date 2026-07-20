@@ -15,7 +15,6 @@ const configuredSeeds = (process.env.LOCAL_LINK_SEEDS ?? "/")
 const maxPages = Number(process.env.LOCAL_LINK_MAX_PAGES ?? 100);
 const deferredPhaseRoutes = new Set([
   "/contact",
-  "/volunteer",
 ]);
 
 test("implemented local routes have valid links and report deferred destinations", async ({

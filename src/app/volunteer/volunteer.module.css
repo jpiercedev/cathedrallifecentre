@@ -1,0 +1,251 @@
+.main {
+  overflow: clip;
+  background: var(--color-linen-100);
+}
+
+.hero {
+  min-height: 620px;
+}
+
+.heroOverlay {
+  background: linear-gradient(
+    110deg,
+    rgb(86 95 76),
+    rgb(86 95 76 / 54%) 50%,
+    rgb(28 44 91 / 44%)
+  );
+}
+
+.heroFade {
+  height: 110px;
+  background: linear-gradient(0deg, var(--color-linen-100), transparent);
+}
+
+.heroInner.heroInner {
+  width: min(100% - 131px, 1152px);
+  max-width: none;
+  padding: 40px 40px 90px;
+}
+
+.heroInner > nav + div {
+  margin-block-start: 32px;
+}
+
+.heroInner h1 {
+  margin: 20px 0;
+  font-size: 60.8px;
+  font-weight: 700;
+  letter-spacing: -0.608px;
+  line-height: 66.88px;
+  text-shadow: 0 2px 20px rgb(0 0 0 / 35%);
+}
+
+.heroInner h1 + span {
+  width: 50px;
+  margin-block-end: 20px;
+  background: rgb(230 218 196 / 45%);
+}
+
+.heroInner h1 ~ p {
+  width: 560px;
+  max-width: 100%;
+  font-size: 16px;
+  line-height: 28.8px;
+}
+
+.heroInner a[href*="churchcenter"] {
+  min-height: 56px;
+  padding: 15px 24px;
+  border-width: 3px;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 20px;
+  text-transform: none;
+  background: #ac4d2e;
+}
+
+.heroInner a[href*="churchcenter"]:hover,
+.heroInner a[href*="churchcenter"]:focus-visible {
+  background: #ac4d2e;
+}
+
+.scrollCue {
+  inset-block-end: 18px;
+}
+
+.ministriesSection {
+  min-height: 1530.890625px;
+  padding-block: 101px 100px;
+  background: var(--color-linen-100);
+}
+
+.contentInner {
+  width: min(100% - 131px, 1152px);
+  max-width: none;
+  padding: 0;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.card,
+.cardLink {
+  position: relative;
+  display: block;
+  height: 320px;
+  overflow: hidden;
+  border-radius: 8px;
+  color: var(--color-white);
+  background: linear-gradient(180deg, var(--color-linen-100), #393b36);
+  box-shadow: 0 8px 16px rgb(0 0 0 / 12%);
+  text-decoration: none;
+}
+
+.cardImage {
+  object-fit: cover;
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgb(0 0 0 / 75%), transparent 70%);
+}
+
+.cardBody {
+  position: absolute;
+  z-index: 2;
+  inset: auto 32px 28px;
+}
+
+.cardBody h3 {
+  margin: 0 0 8px;
+  color: var(--color-white);
+  font-family: Montserrat, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+  text-transform: uppercase;
+}
+
+.cardBody p {
+  margin: 0;
+  color: rgb(255 255 255 / 86%);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.cta {
+  display: grid;
+  min-height: 241.890625px;
+  place-items: center;
+  padding: 52px 40px 60px;
+  border-radius: 12px;
+  margin-block-start: 80px;
+  color: var(--color-white);
+  background: var(--color-olive-700);
+  text-align: center;
+}
+
+.cta h2 {
+  margin: 0;
+  color: var(--color-white);
+  font-family: Montserrat, sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38.4px;
+}
+
+.cta h2 strong {
+  color: var(--color-white);
+}
+
+.ctaButton {
+  display: block;
+  width: fit-content;
+  min-width: 275.75px;
+  min-height: 51.5px;
+  padding: 15px 32px;
+  border: 3px solid rgb(255 255 255 / 25%);
+  border-radius: 30px;
+  margin-block-start: 32px;
+  color: var(--color-white);
+  background: #ac4d2e;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%);
+  font-family: Montserrat, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.54px;
+  line-height: 15.5px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+@media (max-width: 61.9375rem) {
+  .heroInner.heroInner,
+  .contentInner {
+    width: calc(100% - 64px);
+  }
+
+  .ministriesSection {
+    min-height: 0;
+    padding-block: 72px;
+  }
+
+  .cardGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .heroInner.heroInner,
+  .contentInner {
+    width: calc(100% - 48px);
+    padding-inline: 0;
+  }
+
+  .heroInner h1 {
+    font-size: 42px;
+    line-height: 48px;
+  }
+
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta {
+    padding-inline: 24px;
+  }
+
+  .cta h2 {
+    font-size: 26px;
+    line-height: 34px;
+  }
+}
+
+@media (max-width: 29.9375rem) {
+  .heroInner.heroInner,
+  .contentInner {
+    width: calc(100% - 40px);
+  }
+
+  .heroInner a[href*="churchcenter"],
+  .ctaButton {
+    width: 100%;
+    min-width: 0;
+  }
+}
