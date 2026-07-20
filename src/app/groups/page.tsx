@@ -47,7 +47,7 @@ export default function GroupsPage() {
 
       <section
         aria-labelledby="groups-program-title"
-        className={coachingStyles.programSection}
+        className={`${coachingStyles.programSection} ${styles.programSection}`}
       >
         <span
           aria-hidden="true"

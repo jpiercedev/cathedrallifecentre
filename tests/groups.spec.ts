@@ -165,9 +165,12 @@ test("Groups responds at desktop, tablet, and mobile widths", async ({ page }) =
   expectNear(desktopHero!.height, 496);
   expectNear(desktopProgram!.y, 631.5);
   expectNear(desktopProgram!.height, 980.5);
-  expectNear(desktopGrid!.x, 98);
+  expectNear(
+    desktopGrid!.x,
+    ((await page.evaluate(() => document.documentElement.clientWidth)) - desktopGrid!.width) / 2,
+  );
   expectNear(desktopGrid!.width, 1152);
-  expectNear(desktopImageShell!.x, 706);
+  expectNear(desktopImageShell!.x - desktopGrid!.x, 608);
   expectNear(desktopImageShell!.width, 504);
   expectNear(desktopImageShell!.height, 280);
   expect(desktopHeading!.x).toBeLessThan(desktopImage!.x);
@@ -207,7 +210,7 @@ test("Groups responds at desktop, tablet, and mobile widths", async ({ page }) =
   expectNear(desktopComingRects[1].x - desktopComingRects[0].x, 260, 0.2);
   await expect(activeList.locator(":scope > li").first()).toHaveCSS(
     "color",
-    "rgba(86, 95, 76, 0.83)",
+    "rgb(86, 95, 76)",
   );
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(1363);
 
