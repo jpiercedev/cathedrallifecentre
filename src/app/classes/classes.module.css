@@ -1,0 +1,72 @@
+.programSection {
+  min-height: 1011px;
+}
+
+.programCopy h2 {
+  margin-block-end: 24px;
+}
+
+.introduction {
+  margin-block-end: 32px;
+}
+
+.quote {
+  margin-block-end: 0;
+}
+
+.currentLabel {
+  margin-block-end: 16px;
+}
+
+.currentList li + li {
+  margin-block-start: 12px;
+}
+
+.comingBlock {
+  margin-block-start: 36px;
+}
+
+.comingLabel {
+  margin: 0 0 16px;
+  color: #7d5c25;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 15px;
+  text-transform: uppercase;
+}
+
+.comingList {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.comingList li {
+  position: relative;
+  padding-inline-start: 20px;
+  color: var(--color-olive-700);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.comingList li + li {
+  margin-block-start: 12px;
+}
+
+.comingList li::before {
+  position: absolute;
+  top: 7px;
+  left: 5px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgb(86 95 76 / 35%);
+  content: "";
+}
+
+@media (max-width: 61.9375rem) {
+  .programSection {
+    min-height: 0;
+  }
+}
