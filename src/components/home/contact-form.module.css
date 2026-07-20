@@ -73,8 +73,35 @@
   cursor: not-allowed;
 }
 
+.form.compact {
+  min-height: 326px;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 2px 20px rgb(0 0 0 / 6%);
+}
+
+.compact input:first-of-type:disabled {
+  background: var(--color-canvas-100);
+}
+
+.compact button {
+  min-height: 55px;
+  background: var(--color-terracotta-500);
+}
+
+@media (max-width: 47.9375rem) {
+  .form.compact {
+    min-height: 0;
+    padding: 32px;
+  }
+}
+
 @media (max-width: 29.9375rem) {
   .form {
     padding: 30px 24px 24px;
+  }
+
+  .form.compact {
+    padding: 32px;
   }
 }

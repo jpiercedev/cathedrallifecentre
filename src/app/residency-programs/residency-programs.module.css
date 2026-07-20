@@ -1,0 +1,350 @@
+.main {
+  background: var(--color-linen-100);
+}
+
+.hero {
+  min-height: 620px;
+}
+
+.heroOverlay {
+  background: linear-gradient(
+    110deg,
+    rgb(86 95 76),
+    rgb(86 95 76 / 54%) 50%,
+    rgb(28 44 91 / 44%)
+  );
+}
+
+.heroFade {
+  height: 90px;
+}
+
+.heroInner {
+  padding-block: 40px 80px;
+}
+
+.heroInner > nav + div {
+  margin-block-start: 32.5px;
+}
+
+.heroInner h1 {
+  width: min(100%, 672px);
+  font-size: 3.8rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-shadow: 0 2px 20px rgb(0 0 0 / 24%);
+}
+
+.heroInner h1 em {
+  font-style: italic;
+}
+
+.heroInner h1 + span {
+  width: 50px;
+  margin-block-end: 22.4px;
+  background: rgb(230 218 196 / 55%);
+}
+
+.heroInner h1 ~ p {
+  max-width: 520px;
+  color: rgb(255 255 255 / 85%);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.scrollCue {
+  inset-block-end: 22px;
+}
+
+.programs {
+  min-height: 1058px;
+  padding-block: 80px;
+  background: var(--color-linen-100);
+}
+
+.programs:target {
+  scroll-margin-block-start: 24px;
+}
+
+.programsInner {
+  width: min(100% - 80px, 1072px);
+}
+
+.programsHeading {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.programsHeading .eyebrow,
+.contactCopy .contactEyebrow {
+  margin-block-end: 20px;
+}
+
+.eyebrow::before,
+.eyebrow::after,
+.contactEyebrow::before,
+.contactEyebrow::after {
+  width: 34px;
+}
+
+.programsHeading h2 {
+  margin: 0;
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
+.programsDescription {
+  max-width: 720px;
+  margin: 16px 0 0;
+  color: var(--color-olive-700);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.programGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-block-start: 56px;
+}
+
+.programCard {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--color-olive-700);
+}
+
+.programCard img {
+  object-fit: cover;
+}
+
+.cardOverlay {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(0deg, rgb(45 50 39 / 72%), transparent 62%);
+}
+
+.programCard h3 {
+  position: absolute;
+  z-index: 2;
+  inset: auto 22px 22px;
+  margin: 0;
+  color: var(--color-white);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-wrap: wrap;
+}
+
+.age {
+  font-size: 0.72em;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+.applyRow {
+  display: flex;
+  justify-content: center;
+  margin-block-start: 48px;
+}
+
+.applyButton {
+  display: inline-flex;
+  min-width: 240px;
+  min-height: 49px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  border: 3px solid rgb(255 255 255 / 25%);
+  border-radius: 30px;
+  color: var(--color-white);
+  background: var(--color-terracotta-500);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 10%),
+    0 2px 4px -2px rgb(0 0 0 / 10%);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.54px;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: none !important;
+}
+
+.applyButton:hover,
+.applyButton:focus-visible {
+  color: var(--color-white);
+  background: var(--color-terracotta-500);
+  transform: none;
+}
+
+.contact {
+  padding-block: 80px;
+  background: var(--color-canvas-100);
+}
+
+.contactInner {
+  display: grid;
+  width: min(100% - 80px, 1150px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px;
+  align-items: start;
+  margin-inline: auto;
+}
+
+.contactCopy {
+  padding-block-start: 0;
+}
+
+.contactEyebrow {
+  justify-content: flex-start;
+}
+
+.contactCopy h2 {
+  margin: 0 0 20px;
+  font-size: 2.4rem;
+  line-height: 1.25;
+}
+
+.contactDescription {
+  max-width: 500px;
+  margin: 0 0 32px;
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.contactDetail {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-block-start: 0;
+}
+
+.contactDetail + .contactDetail {
+  margin-block-start: 18px;
+}
+
+.contactDetail > span {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--color-cream-200);
+  background: var(--color-olive-700);
+}
+
+.contactDetail svg {
+  width: 20px;
+}
+
+.contactDetail p {
+  display: grid;
+  gap: 1px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.contactDetail strong {
+  font-size: 14px;
+}
+
+.contactDetail a {
+  text-decoration: none;
+}
+
+.contactForm {
+  width: 100%;
+}
+
+@media (max-width: 61.9375rem) {
+  .heroInner {
+    width: calc(100% - 48px);
+  }
+
+  .heroInner h1 {
+    font-size: 3rem;
+  }
+
+  .programsHeading h2 {
+    font-size: 2.625rem;
+  }
+
+  .programGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 24px;
+  }
+
+  .contact {
+    padding: 64px 32px;
+  }
+
+  .contactInner {
+    width: min(100%, 1150px);
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .heroInner h1 {
+    font-size: 2.625rem;
+  }
+
+  .programs {
+    min-height: 0;
+  }
+
+  .programsInner {
+    width: calc(100% - 48px);
+  }
+
+  .programsHeading h2 {
+    font-size: 2.25rem;
+  }
+
+  .programGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact {
+    padding: 56px 24px;
+  }
+}
+
+@media (max-width: 29.9375rem) {
+  .heroInner {
+    width: calc(100% - 40px);
+  }
+
+  .heroInner h1 {
+    font-size: 2.25rem;
+  }
+
+  .programsInner {
+    width: calc(100% - 40px);
+  }
+
+  .programsHeading h2 {
+    font-size: 2rem;
+  }
+
+  .applyButton {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .contact {
+    padding: 48px 20px;
+  }
+
+  .contactCopy h2 {
+    font-size: 2rem;
+  }
+}

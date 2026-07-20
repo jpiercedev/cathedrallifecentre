@@ -24,7 +24,7 @@ type InteriorHeroProps = {
   breadcrumbs: readonly Breadcrumb[];
   children: ReactNode;
   description: string;
-  eyebrow: string;
+  eyebrow?: string;
   fadeClassName?: string;
   heroClassName?: string;
   image: string;
@@ -120,7 +120,9 @@ export function InteriorHero({
         </nav>
 
         <div className={styles.content}>
-          <EyebrowLabel className={styles.eyebrow}>{eyebrow}</EyebrowLabel>
+          {eyebrow ? (
+            <EyebrowLabel className={styles.eyebrow}>{eyebrow}</EyebrowLabel>
+          ) : null}
           <h1 id={titleId}>{children}</h1>
           <span aria-hidden="true" className={styles.rule} />
           <p>{description}</p>
