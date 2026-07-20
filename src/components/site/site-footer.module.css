@@ -23,7 +23,7 @@
 
 .brand p {
   margin: 0 0 20px;
-  color: rgb(242 239 232 / 60%);
+  color: rgb(242 239 232 / 85%);
   font-size: 14px;
   line-height: 1.625;
 }
@@ -124,7 +124,7 @@
 
 .linkGroup a,
 .contact a {
-  color: rgb(242 239 232 / 60%);
+  color: rgb(242 239 232 / 85%);
   line-height: 20px;
 }
 
@@ -140,7 +140,7 @@
 }
 
 .contact address {
-  color: rgb(242 239 232 / 60%);
+  color: rgb(242 239 232 / 85%);
   line-height: 1.625;
   margin-block-end: 8px;
 }
@@ -180,7 +180,7 @@
 
 .ministryNote {
   margin-block-start: 8px !important;
-  color: rgb(242 239 232 / 45%);
+  color: rgb(242 239 232 / 85%);
   font-size: 0.78rem;
   letter-spacing: normal;
   line-height: 1.5;
