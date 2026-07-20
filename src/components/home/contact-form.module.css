@@ -89,16 +89,44 @@
   box-shadow: 0 2px 20px rgb(0 0 0 / 6%);
 }
 
+.compact label,
+.compact .messageLabel {
+  display: block;
+  margin: 0 0 6px;
+  color: var(--color-olive-700);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+.compact input {
+  display: block;
+  height: 38px;
+  padding: 8px 12px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.compact input + label,
+.compact .messageLabel {
+  margin-block-start: 16px;
+}
+
 .compact input:first-of-type {
   background: var(--color-canvas-100);
 }
 
 .compact button {
-  min-height: 55px;
+  display: block;
+  min-height: 54.5px;
   padding: 12px 32px;
   border: 3px solid rgb(255 255 255 / 25%);
   border-radius: 30px;
   outline-color: rgb(255 255 255);
+  margin: 16px 0 0;
   color: rgb(255 255 255);
   background: rgb(223 123 79);
   box-shadow:

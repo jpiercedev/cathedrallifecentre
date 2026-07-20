@@ -82,6 +82,10 @@
   color: #ac4d2e;
 }
 
+.contactCopy .contactEyebrow {
+  margin-block-end: 24px;
+}
+
 .eyebrow::before,
 .eyebrow::after,
 .contactEyebrow::before,
@@ -218,7 +222,7 @@
 }
 
 .contactDescription {
-  max-width: 500px;
+  max-width: none;
   margin: 0 0 32px;
   font-size: 1rem;
   line-height: 1.85;
@@ -226,13 +230,18 @@
 
 .contactDetail {
   display: flex;
-  align-items: center;
+  min-height: 48px;
+  align-items: flex-start;
   gap: 16px;
   margin-block-start: 0;
 }
 
+.contactDetail:first-of-type {
+  min-height: 64px;
+}
+
 .contactDetail + .contactDetail {
-  margin-block-start: 18px;
+  margin-block-start: 20px;
 }
 
 .contactDetail > span {
@@ -256,6 +265,11 @@
   margin: 0;
   font-size: 14px;
   line-height: 20px;
+}
+
+.contactValue {
+  display: grid;
+  gap: 0;
 }
 
 .contactDetail strong {

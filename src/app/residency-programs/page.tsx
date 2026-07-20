@@ -114,9 +114,11 @@ export default function ResidencyProgramsPage() {
               </span>
               <p>
                 <strong>Address</strong>
-                {contact.address.map((line) => (
-                  <span key={line}>{line}</span>
-                ))}
+                <span className={styles.contactValue}>
+                  {contact.address.map((line) => (
+                    <span key={line}>{line}</span>
+                  ))}
+                </span>
               </p>
             </div>
 
