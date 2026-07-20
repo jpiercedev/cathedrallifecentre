@@ -1,5 +1,5 @@
 .programImage {
-  height: 278px;
+  height: 280px;
 }
 
 .programCopy h2 {
@@ -15,7 +15,7 @@
 }
 
 .quote p {
-  margin-block-end: 6px;
+  margin-block-end: 4px;
 }
 
 .conclusion {
@@ -24,14 +24,14 @@
 
 .note {
   padding: 20px;
-  border: 1px solid rgb(86 95 76 / 18%);
-  border-radius: 10px;
+  border: 1px solid rgb(86 95 76 / 20%);
+  border-radius: 12px;
   margin: 0;
   color: var(--color-olive-700);
-  background: rgb(86 95 76 / 6%);
+  background: rgb(86 95 76 / 8%);
   font-size: 14px;
   font-style: italic;
-  line-height: 25.9px;
+  line-height: 25.2px;
 }
 
 .note a {
@@ -42,6 +42,7 @@
 
 .programTopics .activeLabel {
   margin-block-end: 16px;
+  letter-spacing: 2.2px;
 }
 
 .activeList li + li {
@@ -53,15 +54,15 @@
 }
 
 .comingBlock {
-  margin-block-start: 36px;
+  margin-block-start: 32px;
 }
 
 .comingLabel {
-  margin: 0 0 12px;
+  margin: 0 0 8px;
   color: var(--color-olive-700);
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 2.2px;
   line-height: 15px;
   text-transform: uppercase;
 }
@@ -70,39 +71,39 @@
   margin: 0 0 16px;
   color: var(--color-olive-700);
   font-size: 14px;
-  line-height: 24px;
+  line-height: 24.5px;
 }
 
 .comingList {
   display: grid;
   padding: 0;
   margin: 0;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: 12px;
+  grid-template-columns: repeat(2, 244px);
+  gap: 8px 16px;
   list-style: none;
 }
 
 .comingList li {
-  position: relative;
-  padding-inline-start: 16px;
+  display: flex;
+  gap: 8px;
+  padding-inline-start: 8px;
   color: var(--color-olive-700);
   font-size: 14px;
   line-height: 20px;
 }
 
-.comingList li + li {
-  margin-block-start: 8px;
+.comingList li::before {
+  width: 5px;
+  height: 5px;
+  flex: none;
+  border-radius: 50%;
+  margin-block-start: 5px;
+  background: rgb(86 95 76 / 40%);
+  content: "";
 }
 
-.comingList li::before {
-  position: absolute;
-  top: 8px;
-  left: 4px;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: rgb(86 95 76 / 35%);
-  content: "";
+.contactInner {
+  box-sizing: border-box;
 }
 
 @media (max-width: 61.9375rem) {
@@ -110,14 +111,39 @@
     color: var(--color-navy-800);
   }
 
-  .programImage {
-    height: auto;
-    aspect-ratio: 504 / 278;
+  .contactSection {
+    padding: 64px 32px;
+  }
+
+  .contactInner {
+    width: 100%;
+    gap: 32px;
+    padding-inline: 24px;
   }
 }
 
-@media (max-width: 35rem) {
+@media (max-width: 47.9375rem) {
+  .contactSection {
+    padding: 56px 24px;
+  }
+
+  .contactInner {
+    gap: 48px;
+  }
+
   .comingList {
     grid-template-columns: 1fr;
+    row-gap: 16px;
+  }
+}
+
+@media (max-width: 29.9375rem) {
+  .contactSection {
+    padding: 48px 20px;
+  }
+
+  .comingList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 16px;
   }
 }

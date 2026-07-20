@@ -48,8 +48,12 @@ export default function GroupsPage() {
       <section
         aria-labelledby="groups-program-title"
         className={coachingStyles.programSection}
-        id="clc-content"
       >
+        <span
+          aria-hidden="true"
+          className={coachingStyles.contentAnchor}
+          id="clc-content"
+        />
         <Container className={`${coachingStyles.sourceContainer} ${coachingStyles.programGrid}`}>
           <div className={`${coachingStyles.programCopy} ${styles.programCopy}`}>
             <EyebrowLabel className={coachingStyles.sectionEyebrow}>
@@ -77,13 +81,13 @@ export default function GroupsPage() {
             </p>
           </div>
 
-          <div className={`${coachingStyles.programTopics} ${styles.programTopics}`}>
+          <div className={styles.programTopics}>
             <div className={`${coachingStyles.programImage} ${styles.programImage}`}>
               <Image
                 alt={program.imageAlt}
                 fill
                 quality={85}
-                sizes="(max-width: 991px) calc(100vw - 64px), 504px"
+                sizes="(max-width: 479px) calc(100vw - 40px), (max-width: 767px) calc(100vw - 48px), (max-width: 991px) calc(100vw - 64px), 504px"
                 src={program.image}
               />
               <div aria-hidden="true" className={coachingStyles.programImageOverlay} />
@@ -113,10 +117,10 @@ export default function GroupsPage() {
 
       <section
         aria-labelledby="groups-contact-title"
-        className={coachingStyles.contactSection}
+        className={`${coachingStyles.contactSection} ${styles.contactSection}`}
         id="contact"
       >
-        <div className={coachingStyles.contactInner}>
+        <div className={`${coachingStyles.contactInner} ${styles.contactInner}`}>
           <div className={coachingStyles.contactCopy}>
             <EyebrowLabel className={`${coachingStyles.sectionEyebrow} ${coachingStyles.contactEyebrow}`}>
               {contact.eyebrow}
