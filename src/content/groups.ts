@@ -6,7 +6,7 @@ export const groupsContent = {
   },
   hero: {
     eyebrow: "Groups",
-    image: "/assets/pages/groups/groups-card.jpg",
+    image: "/assets/pages/classes/classes-card.jpg",
     titleLead: "Support &",
     titleEmphasis: "community",
   },
