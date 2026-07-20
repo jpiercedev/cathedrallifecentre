@@ -17,14 +17,22 @@ type InteriorHeroProps = {
     href: string;
     label: string;
   };
+  secondaryAction?: {
+    href: string;
+    label: string;
+  };
   breadcrumbs: readonly Breadcrumb[];
   children: ReactNode;
   description: string;
   eyebrow: string;
+  fadeClassName?: string;
+  heroClassName?: string;
   image: string;
   imageAlt?: string;
   imagePosition?: string;
   innerClassName?: string;
+  overlayClassName?: string;
+  showScrollCue?: boolean;
   scrollCueClassName?: string;
   scrollTargetId?: string;
   titleId: string;
@@ -46,20 +54,28 @@ function Chevron() {
 
 export function InteriorHero({
   action,
+  secondaryAction,
   breadcrumbs,
   children,
   description,
   eyebrow,
+  fadeClassName,
+  heroClassName,
   image,
   imageAlt = "",
   imagePosition = "50% 50%",
   innerClassName,
+  overlayClassName,
+  showScrollCue = true,
   scrollCueClassName,
   scrollTargetId = "page-content",
   titleId,
 }: InteriorHeroProps) {
   return (
-    <section aria-labelledby={titleId} className={styles.hero}>
+    <section
+      aria-labelledby={titleId}
+      className={[styles.hero, heroClassName].filter(Boolean).join(" ")}
+    >
       <Image
         alt={imageAlt}
         className={styles.image}
@@ -70,8 +86,14 @@ export function InteriorHero({
         src={image}
         style={{ objectPosition: imagePosition }}
       />
-      <div aria-hidden="true" className={styles.overlay} />
-      <div aria-hidden="true" className={styles.fade} />
+      <div
+        aria-hidden="true"
+        className={[styles.overlay, overlayClassName].filter(Boolean).join(" ")}
+      />
+      <div
+        aria-hidden="true"
+        className={[styles.fade, fadeClassName].filter(Boolean).join(" ")}
+      />
 
       <Container
         className={[styles.inner, innerClassName].filter(Boolean).join(" ")}
@@ -102,26 +124,40 @@ export function InteriorHero({
           <h1 id={titleId}>{children}</h1>
           <span aria-hidden="true" className={styles.rule} />
           <p>{description}</p>
-          {action ? (
-            <ButtonLink className={styles.action} href={action.href}>
-              {action.label}
-            </ButtonLink>
+          {action || secondaryAction ? (
+            <div className={styles.actions}>
+              {action ? (
+                <ButtonLink className={styles.action} href={action.href}>
+                  {action.label}
+                </ButtonLink>
+              ) : null}
+              {secondaryAction ? (
+                <ButtonLink
+                  className={styles.secondaryAction}
+                  href={secondaryAction.href}
+                >
+                  {secondaryAction.label}
+                </ButtonLink>
+              ) : null}
+            </div>
           ) : null}
         </div>
       </Container>
 
-      <a
-        aria-label="Scroll to page content"
-        className={[styles.scrollCue, scrollCueClassName]
-          .filter(Boolean)
-          .join(" ")}
-        href={`#${scrollTargetId}`}
-      >
-        <span aria-hidden="true" className={styles.mouse}>
-          <span className={styles.wheel} />
-        </span>
-        <span>Scroll</span>
-      </a>
+      {showScrollCue ? (
+        <a
+          aria-label="Scroll to page content"
+          className={[styles.scrollCue, scrollCueClassName]
+            .filter(Boolean)
+            .join(" ")}
+          href={`#${scrollTargetId}`}
+        >
+          <span aria-hidden="true" className={styles.mouse}>
+            <span className={styles.wheel} />
+          </span>
+          <span>Scroll</span>
+        </a>
+      ) : null}
     </section>
   );
 }

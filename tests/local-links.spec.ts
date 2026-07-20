@@ -14,7 +14,6 @@ const configuredSeeds = (process.env.LOCAL_LINK_SEEDS ?? "/")
   .filter(Boolean);
 const maxPages = Number(process.env.LOCAL_LINK_MAX_PAGES ?? 100);
 const deferredPhaseRoutes = new Set([
-  "/about",
   "/adoption",
   "/classes",
   "/coaching",

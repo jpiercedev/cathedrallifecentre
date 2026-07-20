@@ -14,6 +14,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: new URL("/about", siteConfig.productionUrl).toString(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: new URL("/fresh-start", siteConfig.productionUrl).toString(),
       changeFrequency: "monthly",
       priority: 0.8,
