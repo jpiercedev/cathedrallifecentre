@@ -317,6 +317,13 @@
   width: 100%;
 }
 
+@media (min-width: 62rem) {
+  .contactInner {
+    margin-inline: 0;
+    margin-inline-start: 5%;
+  }
+}
+
 @media (max-width: 61.9375rem) {
   .heroInner.heroInner {
     width: calc(100% - 48px);
