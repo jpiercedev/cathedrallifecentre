@@ -41,7 +41,7 @@ export default function DonatePage() {
               <em>{hero.emphasis}</em>
             </h1>
             <span aria-hidden="true" className={styles.heroRule} />
-            <p>{hero.description}</p>
+            <p className={styles.heroDescription}>{hero.description}</p>
             <ButtonLink
               className={styles.primaryButton}
               href={hero.action.href}

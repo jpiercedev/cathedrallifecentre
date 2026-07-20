@@ -38,6 +38,7 @@
   gap: 16px;
   padding-inline: 40px;
   margin-inline: auto;
+  transform: translateX(-12px);
 }
 
 .heroCopy {
@@ -79,7 +80,7 @@
   background: rgb(230 218 196 / 45%);
 }
 
-.heroCopy > p {
+.heroDescription {
   max-width: 420px;
   margin: 0 0 32px;
   color: rgb(242 239 232 / 82%);
@@ -381,6 +382,7 @@
     grid-template-columns: 1fr;
     gap: 32px;
     padding-inline: 32px;
+    transform: none;
   }
 
   .hero h1 {
@@ -413,7 +415,7 @@
     font-size: 42px;
   }
 
-  .heroCopy > p {
+  .heroDescription {
     max-width: 540px;
     margin-block-end: 24px;
     line-height: 1.55;
@@ -440,7 +442,7 @@
     line-height: 1.14;
   }
 
-  .heroCopy > p {
+  .heroDescription {
     max-width: 420px;
     margin-block-end: 22px;
     font-size: 15px;
