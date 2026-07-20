@@ -171,7 +171,7 @@
 
 .giveEyebrow {
   margin-block-end: 24px;
-  color: var(--color-terracotta-500);
+  color: var(--color-action-strong);
 }
 
 .giveCopy h2 {
@@ -181,6 +181,10 @@
   font-size: clamp(1.8rem, 3.5vw, 2.6rem);
   font-weight: 700;
   line-height: 1.25;
+}
+
+.giveCopy h2 span {
+  display: block;
 }
 
 .giveParagraph {
@@ -253,7 +257,7 @@
 
 .waysEyebrow {
   margin: 0 0 24px;
-  color: var(--color-terracotta-500);
+  color: var(--color-action-strong);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 2.2px;

@@ -62,10 +62,9 @@ export default function DonatePage() {
                 {give.eyebrow}
               </EyebrowLabel>
               <h2 id="give-title">
-                {give.title[0]}
-                <br />
+                <span>{give.title[0]}</span>
                 {" "}
-                {give.title[1]}
+                <span>{give.title[1]}</span>
               </h2>
               {give.paragraphs.map((paragraph) => (
                 <p className={styles.giveParagraph} key={paragraph}>

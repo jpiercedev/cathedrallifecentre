@@ -342,6 +342,13 @@ test("Donate has no unexpected automated accessibility violations", async ({
     unexpectedAccessibilityViolations(desktopResults.violations),
   ).toEqual([]);
 
+  await page.setViewportSize({ width: 768, height: 1024 });
+  await page.reload();
+  const tabletResults = await new AxeBuilder({ page }).analyze();
+  expect(unexpectedAccessibilityViolations(tabletResults.violations)).toEqual(
+    [],
+  );
+
   await page.setViewportSize({ width: 390, height: 844 });
   await page.reload();
   const mobileResults = await new AxeBuilder({ page }).analyze();
