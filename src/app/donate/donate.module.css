@@ -43,11 +43,19 @@
 
 .heroCopy {
   max-width: 576px;
+  padding-block-end: 2px;
 }
 
 .heroEyebrow {
   margin-block-end: 20px;
   color: var(--color-terracotta-500);
+}
+
+.heroEyebrow,
+.giveEyebrow {
+  font-family: Montserrat, sans-serif;
+  font-size: 11px;
+  letter-spacing: 2.42px;
 }
 
 .heroEyebrow::before,
@@ -383,6 +391,10 @@
     gap: 32px;
     padding-inline: 32px;
     transform: none;
+  }
+
+  .heroCopy {
+    padding-block-end: 0;
   }
 
   .hero h1 {
