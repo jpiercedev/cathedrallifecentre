@@ -155,6 +155,7 @@
 
 .contact > a:last-of-type {
   display: inline;
+  overflow-wrap: anywhere;
 }
 
 .legal {
