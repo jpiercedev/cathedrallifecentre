@@ -4,7 +4,6 @@ const legacySiteUrl = "https://cathedral-life-center.webflow.io";
 const legacyFallbackRoutes = [
   "/classes",
   "/contact",
-  "/groups",
   "/volunteer",
 ] as const;
 

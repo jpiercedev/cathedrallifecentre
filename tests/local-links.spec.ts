@@ -16,7 +16,6 @@ const maxPages = Number(process.env.LOCAL_LINK_MAX_PAGES ?? 100);
 const deferredPhaseRoutes = new Set([
   "/classes",
   "/contact",
-  "/groups",
   "/volunteer",
 ]);
 
