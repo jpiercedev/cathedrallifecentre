@@ -344,6 +344,7 @@
   min-height: 48px;
   align-items: flex-start;
   gap: 16px;
+  line-height: 24px;
 }
 
 .contactDetail:first-child {
