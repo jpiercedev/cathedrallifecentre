@@ -70,23 +70,70 @@
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+  cursor: pointer;
+}
+
+.form button:disabled {
   cursor: not-allowed;
 }
 
 .form.compact {
-  min-height: 326px;
+  min-height: 326.5px;
   padding: 40px;
+  border-color: #e4ebf3;
   border-radius: 16px;
   box-shadow: 0 2px 20px rgb(0 0 0 / 6%);
 }
 
-.compact input:first-of-type:disabled {
+.compact input:first-of-type {
   background: var(--color-canvas-100);
 }
 
 .compact button {
   min-height: 55px;
-  background: var(--color-terracotta-500);
+  padding: 12px 32px;
+  border: 3px solid rgb(255 255 255 / 25%);
+  border-radius: 30px;
+  outline-color: rgb(255 255 255);
+  color: rgb(255 255 255);
+  background: rgb(223 123 79);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 10%),
+    0 2px 4px -2px rgb(0 0 0 / 10%);
+  font-family: Montserrat, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.54px;
+  line-height: 1.5;
+  transition: none !important;
+}
+
+.compact button:hover,
+.compact button:focus-visible {
+  color: rgb(255 255 255);
+  background: rgb(223 123 79);
+  transform: none;
+}
+
+.formError {
+  margin: 12px 0 0;
+  color: var(--color-burgundy-700);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.formSuccess {
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+
+.formSuccess p {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
 }
 
 @media (max-width: 47.9375rem) {

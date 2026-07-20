@@ -47,7 +47,60 @@ test("Residency Programs reproduces the verified content, metadata, and destinat
       .getByRole("region", { name: "Connect With the Life Centre" })
       .getByRole("link", { name: "(832) 381-2306" }),
   ).toHaveAttribute("href", "tel:8323812306");
-  await expect(page.getByRole("button", { name: "Send Message" })).toBeDisabled();
+  const form = page.getByRole("form", {
+    name: "Contact the Cathedral Life Centre",
+  });
+  await expect(form.getByLabel("Name")).toHaveAttribute("required", "");
+  await expect(form.getByLabel("Email Address")).toHaveAttribute("required", "");
+  await expect(form.getByRole("button", { name: "Send Message" })).toBeEnabled();
+});
+
+test("Residency Programs submits the source form and exposes its success state", async ({
+  page,
+}) => {
+  const endpoint = "https://webflow.com/api/v1/form/663792c3759f35a04eea8483";
+  let submission: { method: string; params: URLSearchParams } | undefined;
+
+  await page.route(endpoint, async (route) => {
+    const request = route.request();
+    submission = {
+      method: request.method(),
+      params: new URLSearchParams(request.postData() ?? ""),
+    };
+    await route.fulfill({
+      body: '{"code":200}',
+      headers: {
+        "access-control-allow-origin": "*",
+        "content-type": "application/json",
+      },
+      status: 200,
+    });
+  });
+
+  await page.goto("/residency-programs");
+  const form = page.getByRole("form", {
+    name: "Contact the Cathedral Life Centre",
+  });
+  await form.getByLabel("Name").fill("Grace Test");
+  await form.getByLabel("Email Address").fill("grace@example.com");
+  await form.getByRole("button", { name: "Send Message" }).click();
+
+  await expect(page.getByTestId("classes-form-success")).toHaveText(
+    "We'll be in contact soon!",
+  );
+  expect(submission).toBeDefined();
+  expect(submission!.method).toBe("POST");
+  expect(Object.fromEntries(submission!.params)).toMatchObject({
+    dolphin: "false",
+    elementId: "649800e8-c945-56ae-df0c-1a423f59aa51",
+    "fields[Email Address]": "grace@example.com",
+    "fields[Message]": "",
+    "fields[Name]": "Grace Test",
+    name: "nvygko",
+    pageId: "66aef6066f0a65387d75b267",
+    test: "false",
+  });
+  expect(submission!.params.get("source")).toMatch(/\/residency-programs$/);
 });
 
 test("Residency Programs serves complete local images without browser errors", async ({

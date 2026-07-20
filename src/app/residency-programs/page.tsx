@@ -135,9 +135,10 @@ export default function ResidencyProgramsPage() {
             className={styles.contactForm}
             compact
             heading={null}
-            idPrefix="residency-contact"
+            idPrefix="classes"
             namePlaceholder="Your name"
             submitLabel="Send Message"
+            webflowDelivery={contact.webflowDelivery}
           />
         </div>
       </section>

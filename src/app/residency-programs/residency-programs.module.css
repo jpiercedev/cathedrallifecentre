@@ -79,6 +79,7 @@
 .programsHeading .eyebrow,
 .contactCopy .contactEyebrow {
   margin-block-end: 20px;
+  color: #ac4d2e;
 }
 
 .eyebrow::before,
@@ -125,7 +126,12 @@
   position: absolute;
   z-index: 1;
   inset: 0;
-  background: linear-gradient(0deg, rgb(45 50 39 / 72%), transparent 62%);
+  background: linear-gradient(
+    0deg,
+    rgb(86 95 76 / 83%),
+    rgb(28 44 91 / 25%) 55%,
+    transparent
+  );
 }
 
 .programCard h3 {
@@ -141,9 +147,7 @@
 }
 
 .age {
-  font-size: 0.72em;
-  font-weight: 500;
-  opacity: 0.7;
+  font: inherit;
 }
 
 .applyRow {
@@ -153,19 +157,21 @@
 }
 
 .applyButton {
-  display: inline-flex;
-  min-width: 240px;
-  min-height: 49px;
-  align-items: center;
-  justify-content: center;
+  display: block;
+  align-self: center;
+  width: auto;
+  height: auto;
   padding: 12px 32px;
   border: 3px solid rgb(255 255 255 / 25%);
   border-radius: 30px;
+  outline-color: rgb(255 255 255);
+  margin: 0;
   color: var(--color-white);
   background: var(--color-terracotta-500);
   box-shadow:
     0 4px 6px -1px rgb(0 0 0 / 10%),
     0 2px 4px -2px rgb(0 0 0 / 10%);
+  font-family: Montserrat, sans-serif;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1.54px;
@@ -190,11 +196,11 @@
 
 .contactInner {
   display: grid;
-  width: min(100% - 80px, 1150px);
+  width: min(90%, 1150px);
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 48px;
   align-items: start;
-  margin-inline: auto;
+  margin-inline: 5%;
 }
 
 .contactCopy {
@@ -237,7 +243,7 @@
   place-items: center;
   border-radius: 10px;
   color: var(--color-cream-200);
-  background: var(--color-olive-700);
+  background: rgb(86 95 76 / 83%);
 }
 
 .contactDetail svg {
@@ -246,14 +252,15 @@
 
 .contactDetail p {
   display: grid;
-  gap: 1px;
+  gap: 4px;
   margin: 0;
-  font-size: 13px;
-  line-height: 1.55;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .contactDetail strong {
   font-size: 14px;
+  line-height: 20px;
 }
 
 .contactDetail a {
@@ -289,6 +296,7 @@
   .contactInner {
     width: min(100%, 1150px);
     grid-template-columns: 1fr;
+    margin-inline: auto;
   }
 }
 
