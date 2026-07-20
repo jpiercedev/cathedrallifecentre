@@ -64,6 +64,7 @@ export default function DonatePage() {
               <h2 id="give-title">
                 {give.title[0]}
                 <br />
+                {" "}
                 {give.title[1]}
               </h2>
               {give.paragraphs.map((paragraph) => (

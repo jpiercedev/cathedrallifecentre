@@ -345,7 +345,7 @@
 }
 
 .terracottaOption .optionTitle {
-  color: var(--color-terracotta-500);
+  color: var(--color-action-strong);
 }
 
 .navyOption .optionTitle {
@@ -368,7 +368,7 @@
 .nonprofitNote {
   max-width: 920px;
   margin: 28px auto 0;
-  color: #667085;
+  color: #5f697b;
   font-size: 0.78rem;
   line-height: 1.6;
   text-align: center;

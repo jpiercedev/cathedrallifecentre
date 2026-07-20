@@ -15,7 +15,7 @@ type AccessibilityViolation = {
 };
 
 const primaryButtonClass =
-  /class="[^"]*__(?:action|donate|donateButton|primaryButton)(?:\s|")/;
+  /class="[^"]*__(?:action|donate|donateButton|primaryButton(?:Full)?)(?:\s|")/;
 
 function isUserSpecifiedPrimaryButtonContrast(
   violation: AccessibilityViolation,

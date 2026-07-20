@@ -141,6 +141,7 @@
   .inner {
     width: min(100%, var(--container-default));
     min-height: 429px;
+    gap: 24px;
     padding-inline: 24px;
   }
 }
