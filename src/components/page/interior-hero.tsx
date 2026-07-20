@@ -23,7 +23,7 @@ type InteriorHeroProps = {
   };
   breadcrumbs: readonly Breadcrumb[];
   children: ReactNode;
-  description: string;
+  description?: string;
   eyebrow?: string;
   fadeClassName?: string;
   heroClassName?: string;
@@ -125,7 +125,9 @@ export function InteriorHero({
           ) : null}
           <h1 id={titleId}>{children}</h1>
           <span aria-hidden="true" className={styles.rule} />
-          <p className={styles.description}>{description}</p>
+          {description ? (
+            <p className={styles.description}>{description}</p>
+          ) : null}
           {action || secondaryAction ? (
             <div className={styles.actions}>
               {action ? (

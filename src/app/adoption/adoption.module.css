@@ -1,0 +1,515 @@
+.main {
+  overflow: clip;
+  background: var(--color-linen-100);
+}
+
+.hero {
+  min-height: 496px;
+}
+
+.heroOverlay {
+  background: linear-gradient(
+    110deg,
+    rgb(86 95 76 / 83%),
+    rgb(86 95 76 / 65%) 55%,
+    rgb(28 44 91 / 40%)
+  );
+}
+
+.heroInner.heroInner {
+  width: min(100% - 196px, 1152px);
+  max-width: none;
+  padding: 40px 40px 64px;
+}
+
+.heroInner h1 {
+  margin-block: 19px 20px;
+  font-size: 60.8px;
+  font-weight: 700;
+  letter-spacing: -0.608px;
+  line-height: 66.88px;
+  text-shadow: 0 2px 20px rgb(0 0 0 / 25%);
+}
+
+.heroInner h1 + span {
+  width: 50px;
+  margin-block-end: 0;
+  background: rgb(230 218 196 / 45%);
+}
+
+.scrollCue {
+  inset-block-end: 18px;
+}
+
+.sourceContainer.sourceContainer {
+  width: min(100% - 196px, 1152px);
+  max-width: none;
+  padding-inline: 40px;
+}
+
+.overviewSection {
+  min-height: 673px;
+  padding-block: 88px;
+  background: var(--color-linen-100);
+}
+
+.overviewGrid,
+.resourcesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 64px;
+  align-items: start;
+}
+
+.sectionEyebrow {
+  margin-block-end: 24px;
+  color: #ac4d2e;
+  font-family: Montserrat, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.42px;
+  line-height: 16.5px;
+}
+
+.sectionEyebrow::before,
+.sectionEyebrow::after {
+  width: 34px;
+}
+
+.overviewCopy h2,
+.resourcesCopy h2,
+.contactCopy h2 {
+  color: rgb(86 95 76 / 83%);
+  font-weight: 700;
+  text-wrap: wrap;
+}
+
+.overviewCopy h2 {
+  margin: 0 0 24px;
+  font-size: 41.6px;
+  line-height: 52px;
+}
+
+.bodyCopy {
+  margin: 0;
+  font-size: 16.8px;
+  line-height: 31.08px;
+}
+
+.bodyCopy + .bodyCopy {
+  margin-block-start: 20px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: 300px 180px;
+  gap: 16px;
+}
+
+.galleryMain,
+.gallerySmall,
+.resourcesImage {
+  position: relative;
+  overflow: hidden;
+}
+
+.galleryMain {
+  grid-column: 1 / -1;
+  border: 4px solid var(--color-sand-300);
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgb(0 0 0 / 12%);
+}
+
+.gallerySmall {
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 10%);
+}
+
+.gallery img,
+.resourcesImage img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.resourcesSection {
+  min-height: 771.84375px;
+  padding-block: 88px;
+  background: var(--color-canvas-100);
+}
+
+.resourcesImage {
+  height: 520px;
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgb(45 50 39 / 12%);
+}
+
+.resourcesImage::after {
+  position: absolute;
+  inset: 45% 0 0;
+  background: linear-gradient(transparent, rgb(28 44 91 / 58%));
+  content: "";
+}
+
+.resourcesCopy {
+  padding-block-start: 8px;
+}
+
+.imageCaption {
+  position: absolute;
+  z-index: 1;
+  inset: auto 30px 28px;
+  display: grid;
+  gap: 8px;
+  text-transform: uppercase;
+}
+
+.imageCaption span,
+.imageCaption strong {
+  font-family: Montserrat, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  line-height: 1.5;
+}
+
+.imageCaption span {
+  color: var(--color-terracotta-500);
+}
+
+.imageCaption strong {
+  color: rgb(242 239 232 / 88%);
+}
+
+.resourcesCopy h2 {
+  margin: 0 0 16px;
+  font-size: 41.6px;
+  line-height: 52px;
+}
+
+.headingRule {
+  display: block;
+  width: 40px;
+  height: 2px;
+  margin-block: 0 32px;
+  background: var(--color-terracotta-500);
+}
+
+.resourceList {
+  display: grid;
+  gap: 0;
+}
+
+.resourceList article {
+  padding-inline-start: 20px;
+  border-inline-start: 3px solid rgb(86 95 76 / 16%);
+}
+
+.resourceList article:not(:last-child) {
+  margin-block-end: 24px;
+}
+
+.resourceList article:nth-child(1) {
+  min-height: 22.4px;
+}
+
+.resourceList article:nth-child(2) {
+  min-height: 23px;
+}
+
+.resourceList article:nth-child(3) {
+  min-height: 80px;
+}
+
+.resourceList article:nth-child(4) {
+  min-height: 55.5px;
+}
+
+.resourceList .activeResource {
+  border-inline-start-color: var(--color-terracotta-500);
+}
+
+.resourceTitleRow {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.resourceTitleRow h3 {
+  margin: 0;
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 22.4px;
+}
+
+.resourceList p {
+  margin: 7px 0 0;
+  font-size: 14px;
+  line-height: 24.5px;
+}
+
+.comingSoon {
+  flex: none;
+  padding: 5px 13px;
+  border: 1px solid rgb(86 95 76 / 28%);
+  border-radius: 999px;
+  color: var(--color-olive-700);
+  background: rgb(86 95 76 / 8%);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.primaryButton {
+  display: inline-flex;
+  min-width: 180px;
+  min-height: 49px;
+  align-items: center;
+  justify-content: center;
+  margin-block-start: 40px;
+  padding: 12px 30px;
+  border: 3px solid rgb(255 255 255 / 25%);
+  border-radius: 30px;
+  color: var(--color-white);
+  background: var(--color-terracotta-500);
+  box-shadow: 0 4px 7px rgb(45 50 39 / 15%);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  line-height: 1.5;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.primaryButton:hover,
+.primaryButton:focus-visible {
+  color: var(--color-white);
+  background: var(--color-terracotta-500);
+  transform: none;
+}
+
+.contactSection {
+  min-height: 491.6875px;
+  padding-block: 80px;
+  background: var(--color-canvas-100);
+}
+
+.contactInner {
+  display: grid;
+  width: min(90%, 1150px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px;
+  align-items: start;
+  margin-inline: 5%;
+}
+
+.contactEyebrow {
+  justify-content: flex-start;
+}
+
+.contactCopy h2 {
+  margin: 0 0 20px;
+  font-size: 38.4px;
+  line-height: 48px;
+}
+
+.contactDescription {
+  margin: 0 0 32px;
+  font-size: 16px;
+  line-height: 29.6px;
+}
+
+.contactDetail {
+  display: flex;
+  min-height: 48px;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.contactDetail:first-of-type {
+  min-height: 64px;
+}
+
+.contactDetail + .contactDetail {
+  margin-block-start: 20px;
+}
+
+.contactDetail > span {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--color-cream-200);
+  background: rgb(86 95 76 / 83%);
+}
+
+.contactDetail svg {
+  width: 20px;
+}
+
+.contactDetail p {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.contactValue {
+  display: grid;
+  gap: 0;
+}
+
+.contactDetail strong {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.contactDetail a {
+  text-decoration: none;
+}
+
+.contactForm {
+  width: 100%;
+}
+
+@media (max-width: 61.9375rem) {
+  .heroInner.heroInner,
+  .sourceContainer.sourceContainer {
+    width: calc(100% - 64px);
+    padding-inline: 0;
+  }
+
+  .heroInner h1 {
+    font-size: 3rem;
+    line-height: 1.1;
+  }
+
+  .overviewGrid,
+  .resourcesGrid,
+  .contactInner {
+    grid-template-columns: 1fr;
+  }
+
+  .overviewSection,
+  .resourcesSection {
+    padding-block: 72px;
+  }
+
+  .overviewGrid,
+  .resourcesGrid {
+    gap: 48px;
+  }
+
+  .contactSection {
+    padding: 64px 32px;
+  }
+
+  .contactInner {
+    width: min(100%, 1150px);
+    gap: 32px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .hero {
+    min-height: 520px;
+  }
+
+  .heroInner.heroInner,
+  .sourceContainer.sourceContainer {
+    width: calc(100% - 48px);
+  }
+
+  .heroInner h1 {
+    font-size: 2.625rem;
+  }
+
+  .overviewSection,
+  .resourcesSection {
+    min-height: 0;
+    padding-block: 64px;
+  }
+
+  .overviewCopy h2,
+  .resourcesCopy h2 {
+    font-size: 2.25rem;
+    line-height: 1.25;
+  }
+
+  .gallery {
+    grid-template-rows: 240px 150px;
+  }
+
+  .resourcesImage {
+    height: 380px;
+  }
+
+  .resourceTitleRow {
+    align-items: flex-start;
+  }
+
+  .contactSection {
+    min-height: 0;
+    padding: 56px 24px;
+  }
+
+  .contactInner {
+    gap: 48px;
+  }
+}
+
+@media (max-width: 29.9375rem) {
+  .heroInner.heroInner,
+  .sourceContainer.sourceContainer {
+    width: calc(100% - 40px);
+  }
+
+  .heroInner h1 {
+    font-size: 2.25rem;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    grid-template-rows: 230px 150px 150px;
+  }
+
+  .galleryMain {
+    grid-column: auto;
+  }
+
+  .resourcesImage {
+    height: 320px;
+  }
+
+  .resourceTitleRow {
+    display: grid;
+    justify-content: start;
+  }
+
+  .comingSoon {
+    width: fit-content;
+  }
+
+  .primaryButton {
+    width: 100%;
+  }
+
+  .contactSection {
+    padding: 48px 20px;
+  }
+
+  .contactCopy h2 {
+    font-size: 2rem;
+    line-height: 1.25;
+  }
+}
