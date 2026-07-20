@@ -3,7 +3,6 @@ import type { NextConfig } from "next";
 const legacySiteUrl = "https://cathedral-life-center.webflow.io";
 const legacyFallbackRoutes = [
   "/classes",
-  "/coaching",
   "/contact",
   "/groups",
   "/volunteer",
