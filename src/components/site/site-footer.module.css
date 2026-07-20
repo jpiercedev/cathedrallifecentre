@@ -216,6 +216,10 @@
   .brand {
     display: flex;
     align-items: center;
-    text-align: center;
+  }
+
+  .brand p {
+    align-self: stretch;
+    text-align: left;
   }
 }

@@ -46,8 +46,8 @@ export default function CoachingPage() {
       <section
         aria-labelledby="coaching-program-title"
         className={styles.programSection}
-        id="clc-content"
       >
+        <span aria-hidden="true" className={styles.contentAnchor} id="clc-content" />
         <Container className={`${styles.sourceContainer} ${styles.programGrid}`}>
           <div className={styles.programCopy}>
             <EyebrowLabel className={styles.sectionEyebrow}>
@@ -83,7 +83,7 @@ export default function CoachingPage() {
                 alt={program.imageAlt}
                 fill
                 quality={85}
-                sizes="(max-width: 991px) calc(100vw - 64px), 504px"
+                sizes="(max-width: 479px) calc(100vw - 40px), (max-width: 767px) calc(100vw - 48px), (max-width: 991px) calc(100vw - 64px), 504px"
                 src={program.image}
               />
               <div aria-hidden="true" className={styles.programImageOverlay} />
