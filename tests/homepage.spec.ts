@@ -32,6 +32,20 @@ test("homepage renders the verified content sequence and public metadata", async
   await expect(page.locator('meta[name="robots"]')).toHaveCount(0);
 });
 
+test("homepage hero uses Playfair Display for its emphasized title", async ({
+  page,
+}) => {
+  await page.goto("/");
+
+  const heroTitle = page.getByRole("heading", { level: 1 });
+  const renewed = heroTitle.locator("em");
+
+  await expect(heroTitle).toHaveCSS("font-family", /Playfair Display/);
+  await expect(renewed).toHaveText("Renewed.");
+  await expect(renewed).toHaveCSS("font-family", /Playfair Display/);
+  await expect(renewed).toHaveCSS("font-style", "italic");
+});
+
 test("homepage CTAs retain the verified destinations", async ({ page }) => {
   await page.goto("/");
 
