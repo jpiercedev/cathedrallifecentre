@@ -20,6 +20,7 @@ export const navigation = {
         { label: "Residency Programs", href: "/residency-programs" },
         { label: "Foster Care", href: "/foster-care" },
         { label: "Adoption", href: "/adoption" },
+        { label: "Community Ministries", href: "/community-ministries" },
         { label: "Grace Garage", href: "/grace-garage" },
         { label: "Coaching", href: "/coaching" },
         { label: "Groups", href: "/groups" },

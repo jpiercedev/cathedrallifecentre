@@ -1,0 +1,59 @@
+.programSection {
+  min-height: 731px;
+}
+
+.ministryLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ministryLink:hover,
+.ministryLink:focus-visible {
+  color: var(--color-burgundy-700);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.contactSection {
+  min-height: 569.28125px;
+}
+
+.contactInner {
+  box-sizing: border-box;
+  width: min(calc(100% - 64px), 1024px);
+  padding-inline: 40px;
+  margin-inline: auto !important;
+}
+
+@media (max-width: 61.9375rem) {
+  .programSection,
+  .contactSection {
+    min-height: 0;
+  }
+
+  .contactSection {
+    padding: 64px 32px;
+  }
+
+  .contactInner {
+    width: 100%;
+    gap: 32px;
+    padding-inline: 24px;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .contactSection {
+    padding: 56px 24px;
+  }
+
+  .contactInner {
+    gap: 48px;
+  }
+}
+
+@media (max-width: 29.9375rem) {
+  .contactSection {
+    padding: 48px 20px;
+  }
+}
