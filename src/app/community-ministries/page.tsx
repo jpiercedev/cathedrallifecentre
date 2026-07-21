@@ -35,7 +35,7 @@ export default function CommunityMinistriesPage() {
         image={hero.image}
         imagePosition="50% 50%"
         innerClassName={coachingStyles.heroInner}
-        overlayClassName={coachingStyles.heroOverlay}
+        overlayClassName={`${coachingStyles.heroOverlay} ${styles.heroOverlay}`}
         secondaryAction={{ href: "/donate", label: "Donate" }}
         showScrollCue={false}
         titleId="community-ministries-title"

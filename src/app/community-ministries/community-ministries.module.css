@@ -2,6 +2,15 @@
   min-height: 731px;
 }
 
+.heroOverlay {
+  background: linear-gradient(
+    110deg,
+    rgb(86 95 76 / 83%),
+    rgb(28 44 91 / 65%) 55%,
+    rgb(28 44 91 / 40%)
+  );
+}
+
 .ministryLink {
   color: inherit;
   text-decoration: none;
