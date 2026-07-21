@@ -66,7 +66,7 @@ export default function Home() {
               <ButtonLink className={styles.primaryButton} href="/donate">
                 Give Today
               </ButtonLink>
-              <ButtonLink className={styles.lightOutlineButton} href="#ministries">
+              <ButtonLink className={styles.primaryButton} href="#ministries">
                 Our Ministries
               </ButtonLink>
             </div>
