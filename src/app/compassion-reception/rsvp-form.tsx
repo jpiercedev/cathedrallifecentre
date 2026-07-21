@@ -164,7 +164,11 @@ export function RsvpForm() {
             {guests.map((id, index) => {
               const guestNumber = index + 1;
               return (
-                <fieldset className={styles.guestCard} key={id}>
+                <fieldset
+                  aria-label={`Guest ${guestNumber}`}
+                  className={styles.guestCard}
+                  key={id}
+                >
                   <div className={styles.guestHeader}>
                     <legend>Guest {guestNumber}</legend>
                     <button
