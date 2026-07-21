@@ -27,6 +27,10 @@ body:has(#mobile-navigation-drawer) {
   overflow: hidden;
 }
 
+body:has(#compassion-reception-page) > header {
+  display: none;
+}
+
 button,
 input,
 select,
